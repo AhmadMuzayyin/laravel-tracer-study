@@ -54,9 +54,9 @@ class AlumniController extends Controller
                 'tanggal_lahir' => $validated['tanggal_lahir'],
                 'tahun_lulus' => $validated['tahun_lulus'],
             ]);
-            return redirect()->back()->withSuccess('Data created successfully!');
+            return redirect()->back()->withSuccess('Data berhasil disimpan!');
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors('Error for created data!');
+            return redirect()->back()->withErrors('Data gagal disimpan!');
         }
     }
 
@@ -96,9 +96,9 @@ class AlumniController extends Controller
                 'last_name' => $validated['last_name'],
                 // 'email' => $validated['email'],
             ]);
-            return redirect()->back()->withSuccess('Data hasbeen updated!');
+            return redirect()->back()->withSuccess('Data berhasil diubah!');
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors("Can't update data!");
+            return redirect()->back()->withErrors("Data gagal diubah!");
         }
     }
 
@@ -110,9 +110,9 @@ class AlumniController extends Controller
         try {
             $alumni = User::findOrFail($id);
             $alumni->delete();
-            return redirect()->back()->withSuccess('Data hasbeen deleted successfully!');
+            return redirect()->back()->withSuccess('Data berhasil dihapus!');
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors("Can't deleted data!");
+            return redirect()->back()->withErrors("Data gagal dihapus!");
         }
     }
 }

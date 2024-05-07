@@ -40,9 +40,9 @@ class QuestionController extends Controller
         $validated = $request->validated();
         try {
             Question::create($validated);
-            return redirect()->back()->withSuccess('Data created successfully!');
+            return redirect()->back()->withSuccess('Data berhasil disimpan!');
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors('Erro for created data!');
+            return redirect()->back()->withErrors('Data gagal disimpan!');
         }
     }
 
@@ -72,9 +72,9 @@ class QuestionController extends Controller
         try {
             $question = Question::findOrFail($id);
             $question->update($validated);
-            return redirect()->back()->withSuccess('Data hasbeen updated!');
+            return redirect()->back()->withSuccess('Data berhasil diubah!');
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors('Error for updated data!');
+            return redirect()->back()->withErrors('Data gagal diubah!');
         }
     }
 
@@ -86,9 +86,9 @@ class QuestionController extends Controller
         try {
             $question = Question::findOrFail($id);
             $question->delete();
-            return redirect()->back()->withSuccess('Data hasbeed deleted successfully!');
+            return redirect()->back()->withSuccess('Data berhasil dihapus!');
         } catch (\Throwable $th) {
-            //throw $th;
+            return redirect()->back()->withErrors('Data gagal dihapus!');
         }
     }
 }
