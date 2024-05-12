@@ -1,4 +1,4 @@
-@extends('layouts.admin', ['heading' => 'Data Jawaban'])
+@extends('layouts.admin', ['heading' => 'Data Category'])
 
 @section('main-content')
     <div class="row">
@@ -9,14 +9,14 @@
                         <div class="col">
                         </div>
                         <div class="col text-right">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#addJawaban">
-                                <i class="fas fa-plus"></i> Jawaban
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#addCategory">
+                                <i class="fas fa-plus"></i> Category
                             </button>
                         </div>
-                        <x-modal-basic id="addJawaban" size="modal-xl">
-                            <form action="{{ route('answer.store') }}" method="post">
+                        <x-modal-basic id="addCategory">
+                            <form action="{{ route('category.store') }}" method="post">
                                 @csrf
-                                @include('answer.include.form')
+                                @include('category.include.form')
                             </form>
                         </x-modal-basic>
                     </div>
@@ -26,12 +26,13 @@
                         <table class="table table-striped" id="table">
                             <thead>
                                 <tr>
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Pertanyaan</td>
-                                    <td class="text-center">Pilihan Jawaban</td>
-                                    <td class="text-center">Action</td>
+                                    <th>#</th>
+                                    <th>Slug</th>
+                                    <th>Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
@@ -48,23 +49,12 @@
                 searchable: false
             },
             {
-                data: 'name',
-                name: 'name',
+                data: 'slug',
+                name: 'slug',
             },
             {
-                data: 'answer',
-                render: function(data) {
-                    var list = ''
-                    data.map((val) => {
-                        list += `<ul>
-                            <li>${val.jawaban}</li>
-                        </ul>`
-                    })
-                    return list
-                },
-                name: 'answer',
-                orderable: false,
-                searchable: false
+                data: 'name',
+                name: 'name',
             },
             {
                 data: 'action',
@@ -76,7 +66,7 @@
         $('#table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('answer.index') }}",
+            ajax: "{{ route('category.index') }}",
             columns: columns,
             layout: {
                 topStart: {

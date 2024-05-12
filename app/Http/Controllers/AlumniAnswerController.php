@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\QuestionAnswer;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class AlumniAnswerController extends Controller
 {
@@ -11,7 +13,17 @@ class AlumniAnswerController extends Controller
      */
     public function index()
     {
-        //
+        if (request()->ajax()) {
+            $data = QuestionAnswer::with('user', 'user.alumni')->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('count', function ($query) {
+                    return $query->answer->count() . ' / ' . $query->question->count();
+                })
+                ->addColumn('action', 'questionanswer.include.action')
+                ->toJson();
+        }
+        return view('questionanswer.index');
     }
 
     /**

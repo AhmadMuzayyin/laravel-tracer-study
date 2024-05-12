@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AnswerRequest extends FormRequest
+class PostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,10 @@ class AnswerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'question_id' => ['required', 'exists:questions,id'],
-            'jawaban_pertama' => ['required', 'string'],
-            'jawaban_kedua' => ['required', 'string'],
-            'jawaban_ketiga' => ['required', 'string'],
-            'jawaban_keempat' => ['required', 'string'],
+            'category_id' => 'required|exists:categories,id',
+            'title' => 'required|string|max:255',
+            'post-trixFields' => 'required',
+            'attachment-post-trixFields' => 'required'
         ];
     }
 }

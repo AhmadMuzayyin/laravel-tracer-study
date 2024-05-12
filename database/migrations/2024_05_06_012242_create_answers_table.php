@@ -15,10 +15,8 @@ return new class extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Question::class)->constrained()->cascadeOnDelete();
-            $table->string('jawaban_pertama');
-            $table->string('jawaban_kedua');
-            $table->string('jawaban_ketiga');
-            $table->string('jawaban_keempat');
+            $table->string('jawaban');
+            $table->enum('status', ['pertama', 'kedua', 'ketiga', 'keempat']);
             $table->timestamps();
         });
     }

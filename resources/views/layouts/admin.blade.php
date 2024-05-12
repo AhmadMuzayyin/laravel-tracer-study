@@ -17,6 +17,7 @@
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
     <link href="https://cdn.datatables.net/v/bs4/dt-2.0.6/b-3.0.2/b-colvis-3.0.2/r-3.0.2/datatables.min.css"
         rel="stylesheet">
+    @trixassets
 </head>
 
 <body id="page-top">

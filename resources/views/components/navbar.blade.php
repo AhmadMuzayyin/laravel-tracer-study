@@ -37,8 +37,8 @@
             <span>{{ __('Jawaban') }}</span>
         </a>
     </li>
-    <li class="nav-item {{ Nav::isRoute('alumnianswer.*') }}">
-        <a class="nav-link" href="{{ route('alumnianswer.index') }}">
+    <li class="nav-item {{ Nav::isRoute('questionanswer.*') }}">
+        <a class="nav-link" href="{{ route('questionanswer.index') }}">
             <i class="fas fa-fw fa-hands-helping"></i>
             <span>{{ __('Jawaban Alumni') }}</span>
         </a>
@@ -59,12 +59,12 @@
             <span>{{ __('Postingan') }}</span>
         </a>
     </li>
-    <li class="nav-item {{ Nav::isRoute('setting.*') }}">
+    {{-- <li class="nav-item {{ Nav::isRoute('setting.*') }}">
         <a class="nav-link" href="{{ route('setting.index') }}">
             <i class="fas fa-cogs"></i>
             <span>{{ __('Setting') }}</span>
         </a>
-    </li>
+    </li> --}}
     <hr class="sidebar-divider d-none d-md-block">
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

@@ -36,9 +36,12 @@
             </table>
         </div>
     </x-modal-basic> --}}
-    <button class="btn btn-danger btn-sm" role="button" data-toggle="modal"
-        data-target="#modal-delete-{{ $model->id }}">
-        <i class="fas fa-trash"></i>
-    </button>
-    <x-alert-modal id="modal-delete-{{ $model->id }}" route="{{ route('answer.destroy', $model->id) }}" />
+    <form action="{{ route('answer.destroy', $model->id) }}" method="post" class="d-inline"
+        onsubmit="return confirm('Are you sure to delete this record?')">
+        @csrf
+        @method('delete')
+        <button class="btn btn-danger btn-sm">
+            <i class="fas fa-trash"></i>
+        </button>
+    </form>
 </div>

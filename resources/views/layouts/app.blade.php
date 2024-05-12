@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <x-rich-text::styles theme="richtextlaravel" data-turbo-track="false" />
 </head>
 <body>
     <div id="app">

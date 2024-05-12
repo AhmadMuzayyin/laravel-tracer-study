@@ -71,27 +71,26 @@ class AlumniController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $alumni)
     {
-        $alumni = User::where('id', $id)->with('alumni')->first();
+        $alumni = $alumni->with('alumni')->first();
         return view('alumni.edit', compact('alumni'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(AlumniRequest $request, string $id)
+    public function update(AlumniRequest $request, User $alumni)
     {
         $validated = $request->validated();
         try {
-            $user = User::findOrFail($id);
-            Alumni::where('user_id', $id)->update([
+            Alumni::where('user_id', $alumni->id)->update([
                 'alamat' => $validated['alamat'],
                 'tempat_lahir' => $validated['tempat_lahir'],
                 'tanggal_lahir' => $validated['tanggal_lahir'],
                 'tahun_lulus' => $validated['tahun_lulus'],
             ]);
-            $user->update([
+            $alumni->update([
                 'name' => $validated['name'],
                 'last_name' => $validated['last_name'],
                 // 'email' => $validated['email'],
@@ -105,10 +104,11 @@ class AlumniController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $alumni)
     {
+        // dd($alumni);
         try {
-            $alumni = User::findOrFail($id);
+            // $alumni = User::findOrFail($alumni->id);
             $alumni->delete();
             return redirect()->back()->withSuccess('Data berhasil dihapus!');
         } catch (\Throwable $th) {

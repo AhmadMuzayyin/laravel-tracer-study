@@ -40,10 +40,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::put('/profile', 'ProfileController@update')->name('profile.update');
-    Route::resource('/alumni', AlumniController::class);
+    Route::controller(AlumniController::class)->as('alumni.')->group(function () {
+        Route::get('alumni', 'index')->name('index');
+        Route::post('alumni/store', 'store')->name('store');
+        Route::get('alumni/{alumni}/edit', 'edit')->name('edit');
+        Route::patch('alumni/{alumni}/update', 'update')->name('update');
+        Route::delete('alumni/{alumni}/destroy', 'destroy')->name('destroy');
+    });
     Route::resource('/question', QuestionController::class);
     Route::resource('/answer', AnswerController::class);
-    Route::resource('/alumnianswer', AlumniAnswerController::class);
+    Route::resource('/questionanswer', AlumniAnswerController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/post', PostController::class);
     Route::resource('/setting', SettingController::class);

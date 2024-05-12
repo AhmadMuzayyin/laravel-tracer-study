@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AnswerRequest;
 use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use App\Http\Requests\AnswerRequest;
 use Yajra\DataTables\Facades\DataTables;
 
 class AnswerController extends Controller
@@ -16,13 +16,15 @@ class AnswerController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $data = Question::with('answer')->orderBy('id', 'desc')->get();
+            $data = Question::with('answer')->whereHas('answer', function ($q) {
+                return $q;
+            })->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', 'answer.include.action')
                 ->toJson();
         }
-        $question = Question::all()->toArray();
+        $question = Question::whereDoesntHave('answer')->get()->toArray();
         return view('answer.index', compact('question'));
     }
 
@@ -41,7 +43,44 @@ class AnswerController extends Controller
     {
         $validated = $request->validated();
         try {
-            Answer::create($validated);
+            $array_data = [];
+            if ($validated['jawaban_pertama']) {
+                array_push($array_data, [
+                    'question_id' => $validated['question_id'],
+                    'jawaban' => $validated['jawaban_pertama'],
+                    'status' => 'pertama',
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+            }
+            if ($validated['jawaban_kedua']) {
+                array_push($array_data, [
+                    'question_id' => $validated['question_id'],
+                    'jawaban' => $validated['jawaban_kedua'],
+                    'status' => 'kedua',
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+            }
+            if ($validated['jawaban_ketiga']) {
+                array_push($array_data, [
+                    'question_id' => $validated['question_id'],
+                    'jawaban' => $validated['jawaban_ketiga'],
+                    'status' => 'ketiga',
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+            }
+            if ($validated['jawaban_keempat']) {
+                array_push($array_data, [
+                    'question_id' => $validated['question_id'],
+                    'jawaban' => $validated['jawaban_keempat'],
+                    'status' => 'keempat',
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+            }
+            Answer::insert($array_data);
             return redirect()->back()->with(['success' => 'Data berhasil disimpan']);
         } catch (\Throwable $th) {
             return redirect()->back()->with(['error' => 'Data gagal disimpan']);
@@ -59,9 +98,9 @@ class AnswerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Question $answer)
     {
-        $answer = Answer::findOrFail($id);
+        $answer->load('answer');
         $question = Question::all()->toArray();
         return view('answer.edit', compact('answer', 'question'));
     }
@@ -73,8 +112,35 @@ class AnswerController extends Controller
     {
         $validated = $request->validated();
         try {
-            Answer::findOrFail($id)->update($validated);
-            return redirect()->back()->with(['success' => 'Data berhasil diubah']);
+            if ($validated['jawaban_pertama']) {
+                $array_data = [
+                    'question_id' => $validated['question_id'],
+                    'jawaban' => $validated['jawaban_pertama'],
+                ];
+                Answer::where('question_id', $id)->where('status', 'pertama')->update($array_data);
+            }
+            if ($validated['jawaban_kedua']) {
+                $array_data = [
+                    'question_id' => $validated['question_id'],
+                    'jawaban' => $validated['jawaban_kedua'],
+                ];
+                Answer::where('question_id', $id)->where('status', 'kedua')->update($array_data);
+            }
+            if ($validated['jawaban_ketiga']) {
+                $array_data = [
+                    'question_id' => $validated['question_id'],
+                    'jawaban' => $validated['jawaban_ketiga'],
+                ];
+                Answer::where('question_id', $id)->where('status', 'ketiga')->update($array_data);
+            }
+            if ($validated['jawaban_keempat']) {
+                $array_data = [
+                    'question_id' => $validated['question_id'],
+                    'jawaban' => $validated['jawaban_keempat'],
+                ];
+                Answer::where('question_id', $id)->where('status', 'keempat')->update($array_data);
+            }
+            return redirect('/answer')->with(['success' => 'Data berhasil diubah']);
         } catch (\Throwable $th) {
             return redirect()->back()->with(['error' => 'Data gagal diubah']);
         }
@@ -83,10 +149,10 @@ class AnswerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Question $answer)
     {
         try {
-            Answer::destroy($id);
+            Answer::where('question_id', $answer->id)->delete();
             return redirect()->back()->with(['success' => 'Data berhasil dihapus']);
         } catch (\Throwable $th) {
             return redirect()->back()->with(['error' => 'Data gagal dihapus']);

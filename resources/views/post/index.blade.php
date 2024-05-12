@@ -1,4 +1,4 @@
-@extends('layouts.admin', ['heading' => 'Data Jawaban'])
+@extends('layouts.admin', ['heading' => 'Data Postingan'])
 
 @section('main-content')
     <div class="row">
@@ -9,14 +9,14 @@
                         <div class="col">
                         </div>
                         <div class="col text-right">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#addJawaban">
-                                <i class="fas fa-plus"></i> Jawaban
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#addPost">
+                                <i class="fas fa-plus"></i> Postingan
                             </button>
                         </div>
-                        <x-modal-basic id="addJawaban" size="modal-xl">
-                            <form action="{{ route('answer.store') }}" method="post">
+                        <x-modal-basic id="addPost" size="modal-xl">
+                            <form action="{{ route('post.store') }}" method="post">
                                 @csrf
-                                @include('answer.include.form')
+                                @include('post.include.form')
                             </form>
                         </x-modal-basic>
                     </div>
@@ -26,12 +26,15 @@
                         <table class="table table-striped" id="table">
                             <thead>
                                 <tr>
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Pertanyaan</td>
-                                    <td class="text-center">Pilihan Jawaban</td>
-                                    <td class="text-center">Action</td>
+                                    <th>#</th>
+                                    <th>Pemilik</th>
+                                    <th>Kategori</th>
+                                    <th>Judul</th>
+                                    <th>Tanggal Publikasi</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
@@ -40,6 +43,7 @@
     </div>
 @endsection
 @push('js')
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script>
         let columns = [{
                 data: 'DT_RowIndex',
@@ -48,23 +52,29 @@
                 searchable: false
             },
             {
-                data: 'name',
-                name: 'name',
+                data: 'user.name',
+                name: 'user',
             },
             {
-                data: 'answer',
+                data: 'category.name',
+                name: 'category',
+            },
+            {
+                data: 'title',
+                name: 'title',
+            },
+            {
+                data: 'published_at',
                 render: function(data) {
-                    var list = ''
-                    data.map((val) => {
-                        list += `<ul>
-                            <li>${val.jawaban}</li>
-                        </ul>`
-                    })
-                    return list
+                    if (data != null) {
+                        var now = moment();
+                        var publishedDate = moment(data);
+                        return moment.duration(publishedDate.diff(now)).humanize(true);
+                    } else {
+                        return `<span class="text-warning">Draft</span>`;
+                    }
                 },
-                name: 'answer',
-                orderable: false,
-                searchable: false
+                name: 'published_at',
             },
             {
                 data: 'action',
@@ -76,7 +86,7 @@
         $('#table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('answer.index') }}",
+            ajax: "{{ route('post.index') }}",
             columns: columns,
             layout: {
                 topStart: {

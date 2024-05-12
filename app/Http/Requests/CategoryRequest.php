@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class AnswerRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +23,11 @@ class AnswerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'question_id' => ['required', 'exists:questions,id'],
-            'jawaban_pertama' => ['required', 'string'],
-            'jawaban_kedua' => ['required', 'string'],
-            'jawaban_ketiga' => ['required', 'string'],
-            'jawaban_keempat' => ['required', 'string'],
+            'slug' => [
+                'required', 'string', 'min:5',
+                Rule::unique('categories')->ignore($this->route('category'))
+            ],
+            'name' => ['required', 'string', 'min:5']
         ];
     }
 }
