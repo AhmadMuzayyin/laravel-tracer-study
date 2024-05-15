@@ -25,8 +25,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('landing');
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+Route::get('/blogs', function () {
+    return view('pages.blogs');
+})->name('blogs');
+Route::get('/contacts', function () {
+    return view('pages.contacts');
+})->name('contacts');
 
 // Auth::routes();
 Route::controller(LoginController::class)->as('login.')->group(function () {
@@ -63,5 +72,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('chart/alumni', 'alumni')->name('alumni');
         Route::get('chart/umur', 'umur')->name('umur');
         Route::get('chart/jk', 'jk')->name('jk');
+        Route::get('chart/pendapat', 'pendapat')->name('pendapat');
+        Route::get('chart/penilaian', 'penilaian')->name('penilaian');
+        Route::get('chart/perbulan', 'perbulan')->name('perbulan');
     });
 });

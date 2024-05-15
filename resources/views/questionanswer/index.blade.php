@@ -40,6 +40,18 @@
                     </div>
                 </div>
             </div>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            @include('questionanswer.chart.pendapat')
+                        </div>
+                        <div class="col-6">
+                            @include('questionanswer.chart.penilaian')
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

@@ -75,4 +75,82 @@ class ChartController extends Controller
             }
         }
     }
+    public function pendapat()
+    {
+        if (request()->ajax()) {
+            $user_alumni = User::with('alumni')->get();
+            if ($user_alumni->isNotEmpty()) {
+                $dewasa = [];
+                $remaja = [];
+                foreach ($user_alumni as $user) {
+                    if ($user->alumni && $user->alumni->tanggal_lahir) {
+                        $birthdate = Carbon::parse($user->alumni->tanggal_lahir);
+                        if ($birthdate->age >= 25) {
+                            array_push($dewasa, $birthdate->age);
+                        }
+                        if ($birthdate->age >= 14 && $birthdate->age <= 24) {
+                            array_push($remaja, $birthdate->age);
+                        }
+                        $age = [
+                            'dewasa' => count($dewasa),
+                            'remaja' => count($remaja),
+                        ];
+                    }
+                }
+                return response()->json($age);
+            }
+        }
+    }
+    public function penilaian()
+    {
+        if (request()->ajax()) {
+            $user_alumni = User::with('alumni')->get();
+            if ($user_alumni->isNotEmpty()) {
+                $dewasa = [];
+                $remaja = [];
+                foreach ($user_alumni as $user) {
+                    if ($user->alumni && $user->alumni->tanggal_lahir) {
+                        $birthdate = Carbon::parse($user->alumni->tanggal_lahir);
+                        if ($birthdate->age >= 25) {
+                            array_push($dewasa, $birthdate->age);
+                        }
+                        if ($birthdate->age >= 14 && $birthdate->age <= 24) {
+                            array_push($remaja, $birthdate->age);
+                        }
+                        $age = [
+                            'dewasa' => count($dewasa),
+                            'remaja' => count($remaja),
+                        ];
+                    }
+                }
+                return response()->json($age);
+            }
+        }
+    }
+    public function perbulan()
+    {
+        if (request()->ajax()) {
+            $user_alumni = User::with('alumni')->get();
+            if ($user_alumni->isNotEmpty()) {
+                $dewasa = [];
+                $remaja = [];
+                foreach ($user_alumni as $user) {
+                    if ($user->alumni && $user->alumni->tanggal_lahir) {
+                        $birthdate = Carbon::parse($user->alumni->tanggal_lahir);
+                        if ($birthdate->age >= 25) {
+                            array_push($dewasa, $birthdate->age);
+                        }
+                        if ($birthdate->age >= 14 && $birthdate->age <= 24) {
+                            array_push($remaja, $birthdate->age);
+                        }
+                        $age = [
+                            'dewasa' => count($dewasa),
+                            'remaja' => count($remaja),
+                        ];
+                    }
+                }
+                return response()->json($age);
+            }
+        }
+    }
 }
