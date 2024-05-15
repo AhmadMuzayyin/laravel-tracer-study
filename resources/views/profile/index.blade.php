@@ -172,10 +172,10 @@
                                             <select type="date" class="form-control" id="jenis_kelamin"
                                                 name="jenis_kelamin" required>
                                                 <option value="Laki-Laki"
-                                                    {{ old('jenis_kelamin') ?? (Auth::user()->alumni->jenis_kelamin == 'Laki-Laki' ? 'selected' : '') }}>
+                                                    {{ old('jenis_kelamin') ?? (Auth::user()->alumni != null ? (Auth::user()->alumni->jenis_kelamin == 'Laki-Laki' ? 'selected' : '') : '') }}>
                                                     Laki-Laki</option>
                                                 <option
-                                                    value="Perempuan"{{ old('jenis_kelamin') ?? (Auth::user()->alumni->jenis_kelamin == 'Perempuan' ? 'selected' : '') }}>
+                                                    value="Perempuan"{{ old('jenis_kelamin') ?? (Auth::user()->alumni != null ? (Auth::user()->alumni->jenis_kelamin == 'Perempuan' ? 'selected' : '') : '') }}>
                                                     Perempuan</option>
                                             </select>
                                         </div>
