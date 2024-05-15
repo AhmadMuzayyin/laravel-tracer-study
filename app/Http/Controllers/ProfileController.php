@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumni;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
@@ -35,7 +37,6 @@ class ProfileController extends Controller
         $user->name = $request->input('name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
-
         if (!is_null($request->input('current_password'))) {
             if (Hash::check($request->input('current_password'), $user->password)) {
                 $user->password = $request->input('new_password');
@@ -43,8 +44,25 @@ class ProfileController extends Controller
                 return redirect()->back()->withInput();
             }
         }
-
         $user->save();
+        if (
+            $request->has('alamat') &&
+            $request->has('tempat_lahir') &&
+            $request->has('tanggal_lahir') &&
+            $request->has('tempat_lahir') &&
+            $request->has('telepon') &&
+            $request->has('tahun_lulus')
+        ) {
+            Alumni::create([
+                'user_id' => $user->id,
+                'alamat' => $request->alamat,
+                'telepon' => $request->telepon,
+                'jenis_kelamin' => 'Laki-Laki',
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'tahun_lulus' => Date('Y', strtotime($request->tahun_lulus)),
+            ]);
+        }
 
         return redirect()->route('profile')->withSuccess('Profile updated successfully.');
     }

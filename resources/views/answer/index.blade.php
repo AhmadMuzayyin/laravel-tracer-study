@@ -55,10 +55,14 @@
                 data: 'answer',
                 render: function(data) {
                     var list = ''
+                    var answer = ['Setuju', 'Tidak Setuju', 'Sangat Setuju', 'Sangat Tidak Setuju', 'Baik',
+                        'Sangat Baik', 'Cukup', 'Kurang'
+                    ];
                     data.map((val) => {
+                        var ans = parseInt(val.jawaban) - 1;
                         list += `<ul>
-                            <li>${val.jawaban}</li>
-                        </ul>`
+                            <li>${answer[ans]}</li>
+                        </ul>`;
                     })
                     return list
                 },

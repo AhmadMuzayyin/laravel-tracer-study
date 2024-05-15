@@ -15,12 +15,28 @@
                                     <th>Nama Lengkap</th>
                                     <th>Alamat</th>
                                     <th>Email</th>
-                                    <th>Jawaban / Pertanyaan</th>
-                                    <th>Action</th>
+                                    <th>Telepon</th>
+                                    <th>Tempat/Tanggal Lahir</th>
+                                    <th>Lulusan/Angkatan</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            @include('questionanswer.chart.alumni_menjawab')
+                        </div>
+                        <div class="col-4">
+                            @include('questionanswer.chart.umur')
+                        </div>
+                        <div class="col-4">
+                            @include('questionanswer.chart.jk')
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,14 +71,19 @@
                 name: 'user',
             },
             {
-                data: 'count',
-                name: 'count',
+                data: 'user.alumni.telepon',
+                name: 'user.alumni.telepon',
             },
             {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
+                data: 'user.alumni',
+                render: function(data) {
+                    return data.tempat_lahir + ', ' + data.tanggal_lahir
+                },
+                name: 'user.alumni',
+            },
+            {
+                data: 'user.alumni.tahun_lulus',
+                name: 'user.alumni.tahun_lulus',
             },
         ]
         $('#table').DataTable({

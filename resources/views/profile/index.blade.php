@@ -39,28 +39,7 @@
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <h5 class="font-weight-bold">{{ Auth::user()->fullName }}</h5>
-                                <p>Administrator</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card-profile-stats">
-                                <span class="heading">22</span>
-                                <span class="description">Friends</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card-profile-stats">
-                                <span class="heading">10</span>
-                                <span class="description">Photos</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card-profile-stats">
-                                <span class="heading">89</span>
-                                <span class="description">Comments</span>
+                                <p>{{ Auth::user()->role }}</p>
                             </div>
                         </div>
                     </div>
@@ -128,8 +107,8 @@
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="new_password">New password</label>
-                                        <input type="password" id="new_password" class="form-control"
-                                            name="new_password" placeholder="New password">
+                                        <input type="password" id="new_password" class="form-control" name="new_password"
+                                            placeholder="New password">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -141,6 +120,55 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
+                        @if (auth()->user()->role == \App\RoleEnum::Alumni->value)
+                            <h6 class="heading-small text-muted mb-4">Biodata</h6>
+                            <div class="pl-lg-4">
+                                <div class="form-group">
+                                    <label for="alamat">Alamat Lengkap</label>
+                                    <textarea class="form-control" id="alamat" name="alamat" required>{{ old('alamat') ?? (Auth::user()->alumni != null ? Auth::user()->alumni->alamat : '') }}</textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="tempat_lahir">Tempat Lahir</label>
+                                            <input type="text" class="form-control" id="tempat_lahir"
+                                                name="tempat_lahir"
+                                                value="{{ old('tempat_lahir') ?? (Auth::user()->alumni != null ? Auth::user()->alumni->tempat_lahir : '') }}"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="tanggal_lahir">Tanggal Lahir</label>
+                                            <input type="date" class="form-control" id="tanggal_lahir"
+                                                name="tanggal_lahir"
+                                                value="{{ old('tanggal_lahir') ?? (Auth::user()->alumni != null ? Auth::user()->alumni->tanggal_lahir : '') }}"
+                                                required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="telepon">Nomor Telpon</label>
+                                            <input type="number" class="form-control" id="telepon" name="telepon"
+                                                value="{{ old('telepon') ?? (Auth::user()->alumni != null ? Auth::user()->alumni->telepon : '') }}"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="tahun_lulus">Tahun Lulus</label>
+                                            <input type="date" class="form-control" id="tahun_lulus"
+                                                name="tahun_lulus"
+                                                value="{{ old('tahun_lulus') ?? (Auth::user()->alumni != null ? Auth::user()->alumni->tahun_lulus : '') }}"
+                                                required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
 
                         <!-- Button -->
                         <div class="pl-lg-4">

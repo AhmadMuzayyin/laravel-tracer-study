@@ -16,10 +16,11 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->text('alamat');
+            $table->bigInteger('telepon');
+            $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->bigInteger('telepon');
-            $table->year('tahun_lulus');
+            $table->date('tahun_lulus');
             $table->timestamps();
         });
     }

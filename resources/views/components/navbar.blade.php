@@ -5,7 +5,7 @@
             <img src="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/logowebsmk-copy.png" alt=""
                 class="img-fluid" width="50">
         </div>
-        <div class="sidebar-brand-text mx-3">PANEL <span>1</span></div>
+        <div class="sidebar-brand-text mx-3"><span>PANEL</span></div>
     </a>
 
     <hr class="sidebar-divider my-0">
@@ -28,7 +28,7 @@
     <li class="nav-item {{ Nav::isRoute('question.*') }}">
         <a class="nav-link" href="{{ route('question.index') }}">
             <i class="far fa-question-circle"></i>
-            <span>{{ __('Pertanyaan') }}</span>
+            <span>{{ __('Kuesioner') }}</span>
         </a>
     </li>
     <li class="nav-item {{ Nav::isRoute('answer.*') }}">
@@ -40,7 +40,7 @@
     <li class="nav-item {{ Nav::isRoute('questionanswer.*') }}">
         <a class="nav-link" href="{{ route('questionanswer.index') }}">
             <i class="fas fa-fw fa-hands-helping"></i>
-            <span>{{ __('Jawaban Alumni') }}</span>
+            <span>{{ __('Responden') }}</span>
         </a>
     </li>
     <hr class="sidebar-divider">

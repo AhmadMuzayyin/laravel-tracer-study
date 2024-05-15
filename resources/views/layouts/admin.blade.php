@@ -18,6 +18,7 @@
     <link href="https://cdn.datatables.net/v/bs4/dt-2.0.6/b-3.0.2/b-colvis-3.0.2/r-3.0.2/datatables.min.css"
         rel="stylesheet">
     @trixassets
+    @stack('css')
 </head>
 
 <body id="page-top">
@@ -37,6 +38,16 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <!-- Topbar Navbar -->
+                    @if (auth()->user()->role == \App\RoleEnum::Alumni->value)
+                        <a href="/home" class="mx-2">Home</a>
+                        @if (auth()->user()->alumni)
+                            @if (isset($count_answer))
+                                @if ($count_answer == 0)
+                                    <a href="{{ route('survei.index') }}">Survei</a>
+                                @endif
+                            @endif
+                        @endif
+                    @endif
                     <ul class="navbar-nav ml-auto">
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <li class="nav-item dropdown no-arrow">
@@ -105,6 +116,8 @@
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     <script src="https://cdn.datatables.net/v/bs4/dt-2.0.6/b-3.0.2/b-colvis-3.0.2/r-3.0.2/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"
+        integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
     @stack('js')
 </body>
 

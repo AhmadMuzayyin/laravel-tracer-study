@@ -5,9 +5,11 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SurveiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -53,4 +55,13 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/category', CategoryController::class);
     Route::resource('/post', PostController::class);
     Route::resource('/setting', SettingController::class);
+    Route::controller(SurveiController::class)->as('survei.')->group(function () {
+        Route::get('survei', 'index')->name('index');
+        Route::post('survei/store', 'store')->name('store');
+    });
+    Route::controller(ChartController::class)->as('chart.')->group(function () {
+        Route::get('chart/alumni', 'alumni')->name('alumni');
+        Route::get('chart/umur', 'umur')->name('umur');
+        Route::get('chart/jk', 'jk')->name('jk');
+    });
 });
