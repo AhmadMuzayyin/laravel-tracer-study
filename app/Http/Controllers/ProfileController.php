@@ -51,16 +51,17 @@ class ProfileController extends Controller
             $request->has('tanggal_lahir') &&
             $request->has('tempat_lahir') &&
             $request->has('telepon') &&
-            $request->has('tahun_lulus')
+            $request->has('tahun_lulus') &&
+            $request->has('jenis_kelamin')
         ) {
             Alumni::create([
                 'user_id' => $user->id,
                 'alamat' => $request->alamat,
                 'telepon' => $request->telepon,
-                'jenis_kelamin' => 'Laki-Laki',
+                'jenis_kelamin' => $request->jenis_kelamin,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
-                'tahun_lulus' => Date('Y', strtotime($request->tahun_lulus)),
+                'tahun_lulus' => $request->tahun_lulus,
             ]);
         }
 

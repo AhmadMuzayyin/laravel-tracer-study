@@ -149,7 +149,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label for="telepon">Nomor Telpon</label>
                                             <input type="number" class="form-control" id="telepon" name="telepon"
@@ -157,13 +157,27 @@
                                                 required>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-4">
                                         <div class="form-group">
                                             <label for="tahun_lulus">Tahun Lulus</label>
                                             <input type="date" class="form-control" id="tahun_lulus"
                                                 name="tahun_lulus"
                                                 value="{{ old('tahun_lulus') ?? (Auth::user()->alumni != null ? Auth::user()->alumni->tahun_lulus : '') }}"
                                                 required>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="jenis_kelamin">Jenis Kelamin</label>
+                                            <select type="date" class="form-control" id="jenis_kelamin"
+                                                name="jenis_kelamin" required>
+                                                <option value="Laki-Laki"
+                                                    {{ old('jenis_kelamin') ?? (Auth::user()->alumni->jenis_kelamin == 'Laki-Laki' ? 'selected' : '') }}>
+                                                    Laki-Laki</option>
+                                                <option
+                                                    value="Perempuan"{{ old('jenis_kelamin') ?? (Auth::user()->alumni->jenis_kelamin == 'Perempuan' ? 'selected' : '') }}>
+                                                    Perempuan</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

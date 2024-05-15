@@ -112,7 +112,7 @@
                                     sekolah SMKN 1 PROPPO kedepannya.
                                 </p>
                             @else
-                                @if ($count_answer > 0)
+                                @if ($count_answer == 0)
                                     <a href="{{ route('survei.index') }}" class="btn btn-primary" role="button">ISI
                                         SURVEI</a>
                                 @endif
