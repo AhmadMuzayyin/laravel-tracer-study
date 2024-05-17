@@ -5,22 +5,15 @@
             url: "{{ route('chart.penilaian') }}",
             type: "GET",
             success: function(res) {
-                const ctx = document.getElementById('penilaian');
-                const data = {
-                    labels: ['Laki-Laki', 'Perempuan'],
-                    datasets: [{
-                        label: 'Alumni',
-                        data: [res.lk, res.pr],
-                        backgroundColor: [
-                            '#FF0080',
-                            '#7469B6',
-                        ],
-                        hoverOffset: 4
-                    }]
-                }
+                var data = res.map((val) => {
+                    return val.count
+                })
+                var xValues = ['Setuju', 'Tidak Setuju', 'Sangat Setuju', 'Sangat Tidak Setuju'];
+                var yValues = data;
+                var barColors = ["#DFD0B8", "#948979", "#3C5B6F", "#153448"];
                 const config = {
-                    type: 'doughnut',
-                    data: data,
+                    type: 'bar',
+                    data: yValues,
                     options: {
                         responsive: true,
                         plugins: {
@@ -29,12 +22,23 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Grafik Responded Berdasarkan Jawaban Kategori Penilaian'
+                                text: 'Chart.js Bar Chart'
                             }
                         }
                     },
                 };
-                new Chart(ctx, config);
+                new Chart("penilaian", {
+                    type: "bar",
+                    data: {
+                        labels: xValues,
+                        datasets: [{
+                            axis: 'y',
+                            label: 'Grafik Responded Berdasarkan Jawaban Kategori Penilaian',
+                            backgroundColor: barColors,
+                            data: yValues
+                        }]
+                    },
+                }).getContext('2d');
             }
         })
     </script>

@@ -7,6 +7,7 @@ use App\Models\QuestionAnswer;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
@@ -78,79 +79,25 @@ class ChartController extends Controller
     public function pendapat()
     {
         if (request()->ajax()) {
-            $user_alumni = User::with('alumni')->get();
-            if ($user_alumni->isNotEmpty()) {
-                $dewasa = [];
-                $remaja = [];
-                foreach ($user_alumni as $user) {
-                    if ($user->alumni && $user->alumni->tanggal_lahir) {
-                        $birthdate = Carbon::parse($user->alumni->tanggal_lahir);
-                        if ($birthdate->age >= 25) {
-                            array_push($dewasa, $birthdate->age);
-                        }
-                        if ($birthdate->age >= 14 && $birthdate->age <= 24) {
-                            array_push($remaja, $birthdate->age);
-                        }
-                        $age = [
-                            'dewasa' => count($dewasa),
-                            'remaja' => count($remaja),
-                        ];
-                    }
-                }
-                return response()->json($age);
-            }
+            $pendapat =  DB::table('question_answers')
+                ->join('answers', 'question_answers.answer_id', '=', 'answers.id')
+                ->whereBetween('answers.jawaban', [1, 4])
+                ->select('answers.jawaban', DB::raw('count(*) as count'))
+                ->groupBy('answers.jawaban')
+                ->get();
+            return response()->json($pendapat);
         }
     }
     public function penilaian()
     {
         if (request()->ajax()) {
-            $user_alumni = User::with('alumni')->get();
-            if ($user_alumni->isNotEmpty()) {
-                $dewasa = [];
-                $remaja = [];
-                foreach ($user_alumni as $user) {
-                    if ($user->alumni && $user->alumni->tanggal_lahir) {
-                        $birthdate = Carbon::parse($user->alumni->tanggal_lahir);
-                        if ($birthdate->age >= 25) {
-                            array_push($dewasa, $birthdate->age);
-                        }
-                        if ($birthdate->age >= 14 && $birthdate->age <= 24) {
-                            array_push($remaja, $birthdate->age);
-                        }
-                        $age = [
-                            'dewasa' => count($dewasa),
-                            'remaja' => count($remaja),
-                        ];
-                    }
-                }
-                return response()->json($age);
-            }
-        }
-    }
-    public function perbulan()
-    {
-        if (request()->ajax()) {
-            $user_alumni = User::with('alumni')->get();
-            if ($user_alumni->isNotEmpty()) {
-                $dewasa = [];
-                $remaja = [];
-                foreach ($user_alumni as $user) {
-                    if ($user->alumni && $user->alumni->tanggal_lahir) {
-                        $birthdate = Carbon::parse($user->alumni->tanggal_lahir);
-                        if ($birthdate->age >= 25) {
-                            array_push($dewasa, $birthdate->age);
-                        }
-                        if ($birthdate->age >= 14 && $birthdate->age <= 24) {
-                            array_push($remaja, $birthdate->age);
-                        }
-                        $age = [
-                            'dewasa' => count($dewasa),
-                            'remaja' => count($remaja),
-                        ];
-                    }
-                }
-                return response()->json($age);
-            }
+            $penilaian =  DB::table('question_answers')
+                ->join('answers', 'question_answers.answer_id', '=', 'answers.id')
+                ->whereBetween('answers.jawaban', [5, 8])
+                ->select('answers.jawaban', DB::raw('count(*) as count'))
+                ->groupBy('answers.jawaban')
+                ->get();
+            return response()->json($penilaian);
         }
     }
 }
