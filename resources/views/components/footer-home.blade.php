@@ -5,9 +5,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="widget widget-about">
-                            <img src="{{ url('frontend/assets/img/logo.png') }}" alt="">
-                            <p>Vivamus porta efficitur nibh nec convallis. Vestibulum egestas eleifend justo. Ut
-                                tellus ipsum, accumsan</p>
+                            <img src="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/logowebsmk-copy.png"
+                                alt="">
+                            <p>SMKN 1 Proppo Pamekasan merupakan sekolah baru yang berdiri pada tahun 2010, yang
+                                mempunyai Luas Lahan 3274 m 2, Jumlah ruang 11 dan jumlah rombel 12</p>
                         </div><!--widget-about end-->
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
@@ -36,7 +37,7 @@
                                         <img src="{{ url('frontend/assets/img/icon3.png') }}" alt="">
                                         <div class="contact-tt">
                                             <h4>Address</h4>
-                                            <span>Franklin St, Greenpoint Ave</span>
+                                            <span>Kec. Proppo, Kabupaten Pamekasan</span>
                                         </div>
                                     </div><!--contact-info end-->
                                 </li>
@@ -47,12 +48,8 @@
                         <div class="widget widget-links">
                             <h3 class="widget-title">Quick Links</h3>
                             <ul>
-                                <li><a href="about.html" title="">About Us </a></li>
-                                <li><a href="classes.html" title="">Our Classes</a></li>
-                                <li><a href="teachers.html" title="">School Teachers </a></li>
-                                <li><a href="events.html" title="">Recent Events </a></li>
-                                <li><a href="blog.html" title="">Our News </a></li>
-                                <li><a href="schedule.html" title="">Schedule </a></li>
+                                <li><a href="{{ route('landing.about') }}" title="">About Us </a></li>
+                                <li><a href="{{ route('landing.blogs') }}" title="">Our News </a></li>
                             </ul>
                         </div><!--widget-links end-->
                     </div>
@@ -69,7 +66,7 @@
             <div class="bottom-footer">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <p>© Copyrights {{ date('Y') }} Shelly All rights reserved</p>
+                        <p>© Copyrights {{ date('Y') }} SMKN 1 PROPPO All rights reserved</p>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <ul class="social-links">

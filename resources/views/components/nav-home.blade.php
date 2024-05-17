@@ -48,20 +48,20 @@
             <div class="navigation-bar d-flex flex-wrap align-items-center">
                 <nav>
                     <ul>
-                        <li><a class="{{ request()->routeIs('landing') ? 'active' : '' }}" href="{{ route('landing') }}"
-                                title="">Home</a>
+                        <li><a class="{{ request()->routeIs('landing.index') ? 'active' : '' }}"
+                                href="{{ route('landing.index') }}" title="Beranda">Home</a>
                         </li>
                         <li>
-                            <a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}"
-                                title="">About</a>
+                            <a class="{{ request()->routeIs('landing.about') ? 'active' : '' }}"
+                                href="{{ route('landing.about') }}" title="Tentang Kami">About</a>
                         </li>
                         <li>
-                            <a class="{{ request()->routeIs('blogs') ? 'active' : '' }}" href="{{ route('blogs') }}"
-                                title="">Blog</a>
+                            <a class="{{ request()->routeIs('landing.blogs') ? 'active' : '' }}"
+                                href="{{ route('landing.blogs') }}" title="Blog SMKN 1 Proppo">Blog</a>
                         </li>
                         <li>
-                            <a class="{{ request()->routeIs('contacts') ? 'active' : '' }}"
-                                href="{{ route('contacts') }}" title="">Contacts</a>
+                            <a class="{{ request()->routeIs('landing.contacts') ? 'active' : '' }}"
+                                href="{{ route('landing.contacts') }}" title="Hubungi Kami">Contacts</a>
                         </li>
                         <li>
                             <a href="{{ route('login.index') }}" title="Login Panel">Login</a>
@@ -78,15 +78,24 @@
     </header>
     <div class="responsive-menu">
         <ul>
-            <li><a class="{{ request()->routeIs('landing') . '/' . '#home' ? 'active' : '' }}"
-                    href="{{ request()->routeIs('landing') ? '#home' : route('landing') . '/' . '#home' }}"
-                    title="">Home</a></li>
-            <li><a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="#about" title="">About</a>
+            <li><a class="{{ request()->routeIs('landing.index') ? 'active' : '' }}"
+                    href="{{ route('landing.index') }}" title="Beranda">Home</a>
             </li>
-            <li><a class="{{ request()->routeIs('blogs') ? 'active' : '' }}" href="#blogs" title="">Blog</a>
+            <li>
+                <a class="{{ request()->routeIs('landing.about') ? 'active' : '' }}"
+                    href="{{ route('landing.about') }}" title="Tentang Kami">About</a>
             </li>
-            <li><a class="{{ request()->routeIs('landing') . '/' . '#contacts' ? 'active' : '' }}" href="#contacts"
-                    title="">Contacts</a></li>
+            <li>
+                <a class="{{ request()->routeIs('landing.blogs') ? 'active' : '' }}"
+                    href="{{ route('landing.blogs') }}" title="Blog SMKN 1 Proppo">Blog</a>
+            </li>
+            <li>
+                <a class="{{ request()->routeIs('landing.contacts') ? 'active' : '' }}"
+                    href="{{ route('landing.contacts') }}" title="Hubungi Kami">Contacts</a>
+            </li>
+            <li>
+                <a href="{{ route('login.index') }}" title="Login Panel">Login</a>
+            </li>
         </ul>
     </div>
 </div>

@@ -3,9 +3,8 @@
     <section class="about-us-section">
         <div class="container">
             <div class="section-title text-center">
-                <h2>Welcome to <span>Shelly</span></h2>
-                <p>Nunc consectetur ex nunc, id porttitor leo semper eget. Vivamus interdum, mauris quis cursus
-                    sodales, urn</p>
+                <h2>Selamat Datang di <span>SMKN 1 PROPPO</span></h2>
+                <p>SMKN 1 Proppo membuka pelayanan pendidikan yang sesuai dengan kebutuhan dunia kerja, diantaranya</p>
             </div><!--section-title end-->
             <div class="about-sec">
                 <div class="container">
@@ -13,29 +12,32 @@
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="abt-col wow fadeInUp" data-wow-duration="1000ms">
                                 <img src="{{ url('frontend/assets/img/icon5.png') }}" alt="">
-                                <h3>Awesome Teachers</h3>
-                                <p>Vivamus interdum, mauris interdum quis curdum sodales</p>
+                                <h3>Rekayasa Perangkat Lunak</h3>
+                                <p>Pemrograman Komputer, Desain Grafis, Hardware dan Software.</p>
                             </div><!--abt-col end-->
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
                                 <img src="{{ url('frontend/assets/img/icon7.png') }}" alt="">
-                                <h3>Global Certificate</h3>
-                                <p>Pelleneget tespharetra que fringilla egugue id eget pharetra</p>
+                                <h3>Teknik Audio</h3>
+                                <p>A world of thought-provoking articles, Case studies that celebrate architecture,
+                                    Exclusive access to design insights.</p>
                             </div><!--abt-col end-->
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
                                 <img src="{{ url('frontend/assets/img/icon8.png') }}" alt="">
-                                <h3>Best Programm</h3>
-                                <p>Etiam risus neque, volutpat vel laoreet a, finibus volutpat non</p>
+                                <h3>Teknik Video</h3>
+                                <p>A world of thought-provoking articles, Case studies that celebrate architecture,
+                                    Exclusive access to design insights.</p>
                             </div><!--abt-col end-->
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
                                 <img src="{{ url('frontend/assets/img/icon9.png') }}" alt="">
-                                <h3>Student Support Service</h3>
-                                <p>Mauris nec mi fequis ugiat, cursus tortor nec, pharetra tellus</p>
+                                <h3>Tata Busana</h3>
+                                <p>Collaborate with fellow architects, Showcase your projects,Experience the world of
+                                    architecture</p>
                             </div><!--abt-col end-->
                         </div>
                     </div>

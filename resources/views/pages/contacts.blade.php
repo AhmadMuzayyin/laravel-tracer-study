@@ -9,7 +9,7 @@
                     <li><span>Contacts</span></li>
                 </ul>
             </div><!--pager-content end-->
-            <h2 class="page-titlee">Shelly</h2>
+            <h2 class="page-titlee">SMKN 1</h2>
         </div>
     </section><!--pager-section end-->
 

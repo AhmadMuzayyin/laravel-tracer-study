@@ -6,6 +6,7 @@ use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SettingController;
@@ -24,18 +25,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('landing');
-Route::get('/about', function () {
-    return view('pages.about');
-})->name('about');
-Route::get('/blogs', function () {
-    return view('pages.blogs');
-})->name('blogs');
-Route::get('/contacts', function () {
-    return view('pages.contacts');
-})->name('contacts');
+Route::controller(HomeController::class)->as('landing.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/contacts', 'contacts')->name('contacts');
+    Route::get('/blogs', 'blogs')->name('blogs');
+    Route::get('/blog/{post:slug}', 'blog')->name('single_post');
+});
 
 // Auth::routes();
 Route::controller(LoginController::class)->as('login.')->group(function () {
@@ -48,7 +44,7 @@ Route::post('logout', function (\Illuminate\Http\Request $request) {
     return redirect('/');
 })->name('logout');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'DashboarController@index')->name('home');
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::put('/profile', 'ProfileController@update')->name('profile.update');
     Route::controller(AlumniController::class)->as('alumni.')->group(function () {

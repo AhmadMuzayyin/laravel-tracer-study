@@ -24,6 +24,7 @@ class PostRequest extends FormRequest
         return [
             'category_id' => 'required|exists:categories,id',
             'title' => 'required|string|max:255',
+            'excerpt' => 'required|string',
             'post-trixFields' => 'required',
             'attachment-post-trixFields' => 'required'
         ];

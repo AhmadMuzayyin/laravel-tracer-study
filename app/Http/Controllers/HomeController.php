@@ -12,23 +12,28 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $alumni = User::where('role', 'Alumni')->get()->count();
-        $kategori = Category::count();
-        $postingan = Post::count();
-        $jawaban = QuestionAnswer::count();
-        $widget = [
-            'alumni' => $alumni,
-            'kategori' => $kategori,
-            'postingan' => $postingan,
-            'jawaban' => $jawaban,
-        ];
-        $count_answer = 0;
-        if (auth()->user()->role == 'Alumni') {
-            $count_answer  = QuestionAnswer::where('user_id', auth()->id())->count();
-        }
-        return view('home', [
-            'widget' => $widget,
-            'count_answer' => $count_answer
+        return view('index');
+    }
+    public function about()
+    {
+        return view('pages.about');
+    }
+    public function contacts()
+    {
+        return view('pages.contacts');
+    }
+    public function blogs()
+    {
+        return view('pages.blogs', [
+            'categories' => Category::with('post')->get(),
+            'posts' => Post::with('user', 'category', 'content')->paginate(4),
+        ]);
+    }
+    public function blog(Post $post)
+    {
+        return view('pages.singlepost', [
+            'categories' => Category::with('post')->get(),
+            'post' => $post->load('user', 'category', 'content'),
         ]);
     }
 }
