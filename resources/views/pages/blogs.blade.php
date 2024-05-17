@@ -24,14 +24,16 @@
                                 <div class="blog-post">
                                     <div class="blog-thumbnail">
                                         <a href="#" title="">
-                                            <img src="{{ $post->trixAttachments->count() == 0 ? "https://source.unsplash.com/random/2172x1448/?{$post->category->name}" : $post->trixAttachments }}"
+                                            <img src="{{ $post->trixAttachments->count() == 0 ? "https://source.unsplash.com/random/2172x1448/?{$post->category->name}" : $post->trixAttachments->attachment }}"
                                                 alt="" class="w-100">
                                         </a>
                                         <span class="category">{{ $post->category->name }}</span>
                                     </div>
                                     <div class="blog-info">
                                         <ul class="meta">
-                                            <li><a href="#" title="">17/09/2020</a></li>
+                                            <li><a href="#"
+                                                    title="">{{ $post->created_at->diffForHumans() }}</a>
+                                            </li>
                                             <li><a href="#" title="">by {{ $post->user->name }}</a></li>
                                         </ul>
                                         <h3 class="stick">

@@ -12,7 +12,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $recent_posts = Post::latest()->take(3)->get();
+        return view('index', compact('recent_posts'));
     }
     public function about()
     {

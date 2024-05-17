@@ -96,113 +96,7 @@
                 </ul>
             </div><!-- abt-img end-->
         </div>
-    </section><!--about-us-section end-->
-    <section class="course-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="find-course">
-                        <div class="sec-title">
-                            <h2>Post Categories</h2>
-                            <p>ullam fringilla ipsum sed enim scelerisque, ac porttitor libero egestas. Donec
-                                iaculis nisi eget bibendum efficitur. Lorem ipsum dolor sit</p>
-                            <h3><img src="{{ url('frontend/assets/img/icon11.png') }}" alt="">Call: <strong>+2 342
-                                    5446
-                                    67</strong></h3>
-                        </div><!--sec-title end-->
-                        <div class="course-img">
-                            <img src="https://via.placeholder.com/476x526" alt="">
-                        </div><!--course-img end-->
-                    </div><!--find-course end-->
-                </div>
-                <div class="col-lg-6">
-                    <div class="courses-list">
-                        <div class="course-card wow fadeInLeft" data-wow-duration="1000ms">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <ul class="course-meta">
-                                    <li>
-                                        <img src="{{ url('frontend/assets/img/icon12.png') }}" alt="">
-                                        29/07/2020
-                                    </li>
-                                    <li>
-                                        11AM to 15PM
-                                    </li>
-                                </ul>
-                                <span>FREE</span>
-                            </div>
-                            <h3><a href="event-single.html" title="">Digital Transformation
-                                    Conference</a>
-                            </h3>
-                            <div class="d-flex flex-wrap">
-                                <div class="posted-by">
-                                    <img src="https://via.placeholder.com/26x26" alt="">
-                                    <a href="#" title="">Amanda Kern</a>
-                                </div>
-                                <span class="locat"><img src="{{ url('frontend/assets/img/loct.png') }}"
-                                        alt="" />43
-                                    castle
-                                    road 517 district</span>
-                            </div>
-                        </div><!--course-card end-->
-                        <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="400ms">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <ul class="course-meta">
-                                    <li>
-                                        <img src="{{ url('frontend/assets/img/icon12.png') }}" alt="">
-                                        29/07/2020
-                                    </li>
-                                    <li>
-                                        11AM to 15PM
-                                    </li>
-                                </ul>
-                                <span>$16</span>
-                            </div>
-                            <h3><a href="event-single.html" title="">Environment conference</a></h3>
-                            <div class="d-flex flex-wrap">
-                                <div class="posted-by">
-                                    <img src="https://via.placeholder.com/26x26" alt="">
-                                    <a href="#" title="">Cvita Doleschall</a>
-                                </div>
-                                <span class="locat"><img src="{{ url('frontend/assets/img/loct.png') }}"
-                                        alt="" />43
-                                    castle
-                                    road 517 district</span>
-                            </div>
-                        </div><!--course-card end-->
-                        <div class="course-card wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="600ms">
-                            <div class="d-flex flex-wrap align-items-center">
-                                <ul class="course-meta">
-                                    <li>
-                                        <img src="{{ url('frontend/assets/img/icon12.png') }}" alt="">
-                                        29/07/2020
-                                    </li>
-                                    <li>
-                                        11AM to 15PM
-                                    </li>
-                                </ul>
-                                <span>$8</span>
-                            </div>
-                            <h3><a href="event-single.html" title="">Campus clean workshop</a></h3>
-                            <div class="d-flex flex-wrap">
-                                <div class="posted-by">
-                                    <img src="https://via.placeholder.com/26x26" alt="">
-                                    <a href="#" title="">Helena Brauer</a>
-                                </div>
-                                <span class="locat"><img src="{{ url('frontend/assets/img/loct.png') }}"
-                                        alt="" />43
-                                    castle
-                                    road 517 district</span>
-                            </div>
-                        </div><!--course-card end-->
-                    </div><!--courses-list end-->
-                    <a href="events.html" title="" class="all-btn">All Events <i
-                            class="fa fa-long-arrow-alt-right"></i></a>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-    </section><!--course-section end-->
-
+    </section>
     <section class="blog-section">
         <div class="container">
             <div class="section-title text-center">
@@ -212,80 +106,35 @@
             </div><!--section-title end-->
             <div class="blog-posts">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="blog-post">
-                            <div class="blog-thumbnail">
-                                <img src="https://via.placeholder.com/1680x1120" alt="" class="w-100">
-                                <span class="category">English</span>
-                            </div>
-                            <div class="blog-info">
-                                <ul class="meta">
-                                    <li><a href="#" title="">17/09/2020</a></li>
-                                    <li><a href="#" title="">by Admin</a></li>
-                                    <li><img src="{{ url('frontend/assets/img/icon13.png') }}" alt="" /><a
-                                            href="#" title="">Teachers,</a><a href="#" title="">
-                                            School</a></li>
-                                </ul>
-                                <h3><a href="post.html" title="">Campus clean workshop</a></h3>
-                                <p>Nam mattis felis id sodales rutrum. Nulla ornare tristique mauris, a laoreet
-                                    erat
-                                    ornare sit amet</p>
-                                <a href="post.html" title="" class="read-more">Read <i
-                                        class="fa fa-long-arrow-alt-right"></i></a>
-                            </div>
-                        </div><!--blog-post end-->
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="blog-post">
-                            <div class="blog-thumbnail">
-                                <img src="https://via.placeholder.com/1440x960" alt="" class="w-100">
-                                <span class="category">English</span>
-                            </div>
-                            <div class="blog-info">
-                                <ul class="meta">
-                                    <li><a href="#" title="">17/09/2020</a></li>
-                                    <li><a href="#" title="">by Admin</a></li>
-                                    <li><img src="{{ url('frontend/assets/img/icon13.png') }}" alt="" /><a
-                                            href="#" title="">Teachers,</a><a href="#" title="">
-                                            School</a></li>
-                                </ul>
-                                <h3><a href="post.html" title="">Campus clean workshop</a></h3>
-                                <p>Nam mattis felis id sodales rutrum. Nulla ornare tristique mauris, a laoreet
-                                    erat
-                                    ornare sit amet</p>
-                                <a href="post.html" title="" class="read-more">Read <i
-                                        class="fa fa-long-arrow-alt-right"></i></a>
-                            </div>
-                        </div><!--blog-post end-->
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="blog-post">
-                            <div class="blog-thumbnail">
-                                <img src="https://via.placeholder.com/1680x1120" alt="" class="w-100">
-                                <span class="category">English</span>
-                            </div>
-                            <div class="blog-info">
-                                <ul class="meta">
-                                    <li><a href="#" title="">17/09/2020</a></li>
-                                    <li><a href="#" title="">by Admin</a></li>
-                                    <li><img src="{{ url('frontend/assets/img/icon13.png') }}" alt="" /><a
-                                            href="#" title="">Teachers,</a><a href="#" title="">
-                                            School</a></li>
-                                </ul>
-                                <h3><a href="post.html" title="">Campus clean workshop</a></h3>
-                                <p>Nam mattis felis id sodales rutrum. Nulla ornare tristique mauris, a laoreet
-                                    erat
-                                    ornare sit amet</p>
-                                <a href="post.html" title="" class="read-more">Read <i
-                                        class="fa fa-long-arrow-alt-right"></i></a>
-                            </div>
-                        </div><!--blog-post end-->
-                    </div>
+                    @foreach ($recent_posts as $recent)
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumbnail">
+                                    <img src="{{ $recent->trixAttachments->count() == 0 ? "https://source.unsplash.com/random/2172x1448/?{$recent->category->name}" : $recent->trixAttachments->attachment }}"
+                                        alt="" class="w-100">
+                                    <span class="category">{{ $recent->category->name }}</span>
+                                </div>
+                                <div class="blog-info">
+                                    <ul class="meta">
+                                        <li><a href="#"
+                                                title="">{{ $recent->created_at->diffForHumans() }}</a></li>
+                                        <li><a href="#" title="">by {{ $recent->user->name }}</a></li>
+                                    </ul>
+                                    <h3><a href="{{ route('landing.single_post', $recent->slug) }}"
+                                            title="">{{ $recent->title }}</a></h3>
+                                    <p>
+                                        {{ $recent->excerpt() }}
+                                    </p>
+                                    <a href="{{ route('landing.single_post', $recent->slug) }}" title=""
+                                        class="read-more">Read <i class="fa fa-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div><!--blog-post end-->
+                        </div>
+                    @endforeach
                 </div>
             </div><!--blog-posts end-->
         </div>
-    </section><!--blog-section end-->
-
+    </section>
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-sec">
@@ -321,5 +170,5 @@
                 </div>
             </div><!--newsletter-sec end-->
         </div>
-    </section><!--newsletter-sec end-->
+    </section>
 @endsection
