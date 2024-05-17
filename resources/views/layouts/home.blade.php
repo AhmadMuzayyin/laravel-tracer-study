@@ -6,9 +6,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ env('APP_NAME', 'Laravel') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shelly - Website" />
-    <meta name="author" content="merkulove">
-    <meta name="keywords" content="" />
+    <meta name="description" content="SMKN 1 Proppo Tracer Study - Website" />
+    <meta name="author" content="Ahmad Muzayyin">
+    <meta name="keywords" content="Tracer Study SMKN 1 PROPPO" />
     <x-header-home />
     @stack('css')
     @trixassets
