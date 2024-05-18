@@ -36,46 +36,11 @@
         @enderror
     </div>
     <div class="form-group">
-        <label for="alamat">Alamat</label>
-        <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat"
-            value="{{ isset($alumni) ? ($alumni->alumni != [] ? $alumni->alumni->alamat : old('alamat')) : old('alamat') }}">
-        @error('alamat')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="tempat_lahir">Tempat / Tanggal Lahir</label>
-        <div class="row">
-            <div class="col">
-                <input type="text" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir"
-                    name="tempat_lahir"
-                    value="{{ isset($alumni) ? ($alumni->alumni != [] ? $alumni->alumni->tempat_lahir : old('tempat_lahir')) : old('tempat_lahir') }}">
-                @error('tempat_lahir')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <div class="col">
-                <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
-                    id="tanggal_lahir" name="tanggal_lahir"
-                    value="{{ isset($alumni) ? ($alumni->alumni != [] ? $alumni->alumni->tanggal_lahir : old('tanggal_lahir')) : old('tanggal_lahir') }}">
-                @error('tanggal_lahir')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="tahun_lulus">Tahun Lulus</label>
-        <input type="year" class="form-control @error('tahun_lulus') is-invalid @enderror" id="tahun_lulus"
-            name="tahun_lulus"
-            value="{{ isset($alumni) ? ($alumni->alumni != [] ? $alumni->alumni->tahun_lulus : old('tahun_lulus')) : old('tahun_lulus') }}">
-        @error('tahun_lulus')
+        <label for="password">Password</label>
+        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
+            name="password"
+            value="{{ isset($alumni) ? ($alumni->alumni != [] ? $alumni->alumni->password : old('password')) : old('password') }}">
+        @error('password')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
