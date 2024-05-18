@@ -40,20 +40,7 @@ class AlumniController extends Controller
     {
         $validated = $request->validated();
         try {
-            $user = User::create([
-                'name' => $validated['name'],
-                'last_name' => $validated['last_name'],
-                'email' => $validated['email'],
-                'password' => 'password',
-            ]);
-            Alumni::create([
-                'user_id' => $user->id,
-                'alamat' => $validated['alamat'],
-                'telepon' => $validated['telepon'],
-                'tempat_lahir' => $validated['tempat_lahir'],
-                'tanggal_lahir' => $validated['tanggal_lahir'],
-                'tahun_lulus' => $validated['tahun_lulus'],
-            ]);
+            User::create($validated);
             return redirect()->back()->withSuccess('Data berhasil disimpan!');
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors('Data gagal disimpan!');

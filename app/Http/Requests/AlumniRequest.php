@@ -31,14 +31,7 @@ class AlumniRequest extends FormRequest
                 'required',
                 Rule::unique('users')->ignore($this->route('alumnus'))
             ],
-            'alamat' => ['required', 'string', 'min:10', 'max:225'],
-            'telepon' => ['required'],
-            'tempat_lahir' => ['required', 'string'],
-            'tanggal_lahir' => ['required',],
-            'tahun_lulus' => [
-                'required', 'digits:4', 'integer', 'min:1900',
-                'max:2050'
-            ]
+            'password' => ['required', 'min:8']
         ];
     }
 }
