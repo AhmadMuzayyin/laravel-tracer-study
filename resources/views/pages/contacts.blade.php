@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-7">
                         <div class="comment-area">
-                            <h3>Add Comment</h3>
+                            <h3>Contact Me</h3>
                             <form id="contact-form" method="post" action="#">
                                 <div class="response"></div>
                                 <div class="row">
