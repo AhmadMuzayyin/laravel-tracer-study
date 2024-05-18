@@ -29,7 +29,7 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Grafik Responded Berdasarkan Umur'
+                                text: 'Grafik Responden Berdasarkan Jenis Kelamin'
                             }
                         }
                     },

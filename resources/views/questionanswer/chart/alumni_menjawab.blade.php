@@ -29,7 +29,7 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Grafik Responded Berdasarkan Alumni'
+                                text: 'Grafik Responden Berdasarkan Alumni'
                             }
                         }
                     },

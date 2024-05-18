@@ -59,7 +59,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/questionanswer', AlumniAnswerController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/post', PostController::class);
-    Route::resource('/setting', SettingController::class);
     Route::controller(SurveiController::class)->as('survei.')->group(function () {
         Route::get('survei', 'index')->name('index');
         Route::post('survei/store', 'store')->name('store');

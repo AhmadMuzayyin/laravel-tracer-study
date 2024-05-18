@@ -8,7 +8,7 @@
                 var data = res.map((val) => {
                     return val.count
                 })
-                var xValues = ['Setuju', 'Tidak Setuju', 'Sangat Setuju', 'Sangat Tidak Setuju'];
+                var xValues = ['Baik', 'Sangat Baik', 'Cukup', 'Kurang'];
                 var yValues = data;
                 var barColors = ["#DFD0B8", "#948979", "#3C5B6F", "#153448"];
                 const config = {
