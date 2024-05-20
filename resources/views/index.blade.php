@@ -46,53 +46,61 @@
             <div class="abt-img">
                 <ul class="masonary">
                     <li class="width1 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/1414x943/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/1414x943/?students"
-                                alt=""></a>
+                            href="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-20-at-13.23.45-1024x768.jpeg"
+                            data-group="set1" title="" class="html5lightbox">
+                            <img src="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-20-at-13.23.45-1024x768.jpeg"
+                                width="1414" height="943" alt=""></a>
                     </li>
                     <li class="width2 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/1440x661/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/1440x661/?students"
-                                alt=""></a>
+                            href="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-20-at-13.23.48-1024x579.jpeg"
+                            data-group="set1" title="" class="html5lightbox"><img
+                                src="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-20-at-13.23.48-1024x579.jpeg"
+                                width="1440" height="661" alt=""></a>
                     </li>
                     <li class="width3 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/2064x1376/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/2064x1376/?students"
-                                alt=""></a>
+                            href="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-20-at-13.23.37.jpeg"
+                            data-group="set1" title="" class="html5lightbox"><img
+                                src="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-20-at-13.23.37.jpeg"
+                                width="2064" height="1376" alt=""></a>
                     </li>
                     <li class="width4 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/1504x1004/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/1504x1004/?students"
-                                alt=""></a>
+                            href="https://static.promediateknologi.id/crop/0x0:0x0/750x500/photo/p2/74/2024/02/26/f-adv-smkn-1-kalianget-iqb-4236037005.jpg"
+                            data-group="set1" title="" class="html5lightbox"><img
+                                src="https://static.promediateknologi.id/crop/0x0:0x0/750x500/photo/p2/74/2024/02/26/f-adv-smkn-1-kalianget-iqb-4236037005.jpg"
+                                width="1504" height="1004" alt=""></a>
                     </li>
                     <li class="width5 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/1440x960/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/1440x960/?students"
-                                alt=""></a>
+                            href="https://i.ytimg.com/vi/QymJq4c_jgE/maxresdefault.jpg" data-group="set1" title=""
+                            class="html5lightbox"><img src="https://i.ytimg.com/vi/QymJq4c_jgE/maxresdefault.jpg"
+                                width="1440" height="960" alt=""></a>
                     </li>
                     <li class="width6 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/1393x929/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/1393x929/?students"
-                                alt=""></a>
+                            href="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-04-13-at-08.26.22-1024x769.jpeg"
+                            data-group="set1" title="" class="html5lightbox"><img
+                                src="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/WhatsApp-Image-2023-04-13-at-08.26.22-1024x769.jpeg"
+                                width="1339" height="929" alt=""></a>
                     </li>
                     <li class="width7 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/1840x1228/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/1840x1228/?students"
-                                alt=""></a></li>
+                            href="https://i.ytimg.com/vi/M72mFXfd_30/maxresdefault.jpg" data-group="set1" title=""
+                            class="html5lightbox"><img src="https://i.ytimg.com/vi/M72mFXfd_30/maxresdefault.jpg"
+                                width="1840" height="1228" alt=""></a></li>
                     <li class="width8 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/1404x906/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/1404x906/?students"
-                                alt=""></a>
+                            href="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/backg.jpg" data-group="set1"
+                            title="" class="html5lightbox"><img
+                                src="https://smkn1proppo.sch.id/wp-content/uploads/2023/12/backg.jpg" width="1404"
+                                height="906" alt=""></a>
                     </li>
                     <li class="width9 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/750x502/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/750x502/?students"
-                                alt=""></a>
+                            href="https://smkn1proppo.sch.id/wp-content/uploads/2024/01/IMG_1348.png" data-group="set1"
+                            title="" class="html5lightbox"><img
+                                src="https://smkn1proppo.sch.id/wp-content/uploads/2024/01/IMG_1348.png" width="750"
+                                height="502" alt=""></a>
                     </li>
                     <li class="width10 wow zoomIn" data-wow-duration="1000ms"><a
-                            href="https://source.unsplash.com/random/1500x100/?students" data-group="set1" title=""
-                            class="html5lightbox"><img src="https://source.unsplash.com/random/1500x100/?students"
-                                alt=""></a></li>
+                            href="https://smkn1proppo.sch.id/wp-content/uploads/2024/01/IMG_1352-scaled.jpg"
+                            data-group="set1" title="" class="html5lightbox"><img
+                                src="https://smkn1proppo.sch.id/wp-content/uploads/2024/01/IMG_1352-scaled.jpg"
+                                width="1500" height="100" alt=""></a></li>
                 </ul>
             </div><!-- abt-img end-->
         </div>

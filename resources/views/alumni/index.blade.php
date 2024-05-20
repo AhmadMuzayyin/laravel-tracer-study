@@ -27,10 +27,10 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Last Name</th>
+                                    <th>Nama Awal</th>
+                                    <th>Nama Akhir</th>
                                     <th>Email</th>
-                                    <th>Action</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -73,11 +73,6 @@
             serverSide: true,
             ajax: "{{ route('alumni.index') }}",
             columns: columns,
-            layout: {
-                topStart: {
-                    buttons: ['colvis']
-                }
-            },
         })
     </script>
 @endpush

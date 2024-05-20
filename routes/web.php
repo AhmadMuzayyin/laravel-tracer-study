@@ -67,8 +67,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('chart/alumni', 'alumni')->name('alumni');
         Route::get('chart/umur', 'umur')->name('umur');
         Route::get('chart/jk', 'jk')->name('jk');
-        Route::get('chart/pendapat', 'pendapat')->name('pendapat');
-        Route::get('chart/penilaian', 'penilaian')->name('penilaian');
-        Route::get('chart/perbulan', 'perbulan')->name('perbulan');
+        Route::get('chart/jawaban', 'jawaban')->name('jawaban');
     });
 });

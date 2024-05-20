@@ -25,8 +25,8 @@ class AnswerRequest extends FormRequest
             'question_id' => ['required', 'exists:questions,id'],
             'jawaban_pertama' => ['required', 'string'],
             'jawaban_kedua' => ['required', 'string'],
-            'jawaban_ketiga' => ['required', 'string'],
-            'jawaban_keempat' => ['required', 'string'],
+            'jawaban_ketiga' => ['nullable', 'string'],
+            'jawaban_keempat' => ['nullable', 'string'],
         ];
     }
 }

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                <label for="name">First Name</label>
+                <label for="name">Nama Awal</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                     value="{{ isset($alumni) ? $alumni->name : old('name') }}">
                 @error('name')
@@ -14,7 +14,7 @@
         </div>
         <div class="col">
             <div class="form-group">
-                <label for="last_name">Last Name</label>
+                <label for="last_name">Nama Akhir</label>
                 <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name"
                     name="last_name" value="{{ isset($alumni) ? $alumni->last_name : old('last_name') }}">
                 @error('last_name')

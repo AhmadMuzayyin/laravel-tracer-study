@@ -27,14 +27,16 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="avt-img">
-                            <img src="https://source.unsplash.com/random/601x645/?teachers" alt="">
+                            <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/74/2023/11/22/F-SMKN-1-Proppo-852608841.jpeg"
+                                width="601" height="645" alt="">
                         </div><!--avt-img end-->
                     </div>
                 </div>
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="avt-img">
-                            <img src="https://source.unsplash.com/random/575x592/?students" alt="">
+                            <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/74/2023/11/22/F-SMKN-1-Proppo-852608841.jpeg"
+                                width="575" height="592" alt="">
                         </div><!--avt-img end-->
                     </div>
                     <div class="col-lg-6 col-md-6">

@@ -40,7 +40,8 @@
                                 </div>
                                 <div class="col-lg-5 col-md-5">
                                     <div class="banner-img wow zoomIn" data-wow-duration="1000ms">
-                                        <img src="https://source.unsplash.com/random/497x586/?students" alt="">
+                                        <img src="https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/radarmadura/2018/05/smkn-1-proppo-toreh-prestasi-tingkat-provinsi_m_70203.jpeg"
+                                            width="497" height="586" alt="">
                                     </div><!--banner-img end-->
                                     <div class="elements-bg wow zoomIn" data-wow-duration="1000ms"></div>
                                 </div>

@@ -16,7 +16,7 @@ class AlumniController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $data = User::with('alumni')->orderBy('id', 'desc')->get();
+            $data = User::with('alumni')->where('role', 'Alumni')->orderBy('id', 'desc')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', 'alumni.include.action')

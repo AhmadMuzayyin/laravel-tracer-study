@@ -9,7 +9,7 @@
         <div class="table-responsive">
             <table class="table table-striped">
                 <tr>
-                    <th>Fullname</th>
+                    <th>Nama Lengkap</th>
                     <td>{{ $model->fullname }}</td>
                 </tr>
                 <tr>

@@ -10,7 +10,7 @@
                         </div>
                         <div class="col text-right">
                             <button class="btn btn-primary" data-toggle="modal" data-target="#addCategory">
-                                <i class="fas fa-plus"></i> Category
+                                <i class="fas fa-plus"></i> Kategori
                             </button>
                         </div>
                         <x-modal-basic id="addCategory">
@@ -28,8 +28,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Slug</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
+                                    <th>Nama</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -68,11 +68,6 @@
             serverSide: true,
             ajax: "{{ route('category.index') }}",
             columns: columns,
-            layout: {
-                topStart: {
-                    buttons: ['colvis']
-                }
-            },
         })
     </script>
 @endpush

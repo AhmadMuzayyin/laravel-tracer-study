@@ -43,10 +43,11 @@
                                                     <strong>{{ $loop->iteration }}/{{ $questions->count() + 1 }}</strong>
                                                     {{ $item->name }}
                                                 </h3>
-                                                @foreach ($item->answer as $val)
+                                                @foreach ($item->answer as $key => $val)
                                                     <div class="form-group radio_input">
                                                         <label class="container_radio">
-                                                            {{ $answer[$val->jawaban - 1] }}
+                                                            {{-- @dd($answer) --}}
+                                                            {{ $val->jawaban }}
                                                             <input type="radio" name="jawaban-{{ $item->id }}"
                                                                 value="{{ $val->jawaban }}" class="required" required>
                                                             <span class="checkmark"></span>

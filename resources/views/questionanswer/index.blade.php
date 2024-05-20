@@ -43,11 +43,8 @@
             <div class="card mt-2">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-6">
-                            @include('questionanswer.chart.pendapat')
-                        </div>
-                        <div class="col-6">
-                            @include('questionanswer.chart.penilaian')
+                        <div class="col">
+                            @include('questionanswer.chart.jawaban')
                         </div>
                     </div>
                 </div>
@@ -103,11 +100,6 @@
             serverSide: true,
             ajax: "{{ route('questionanswer.index') }}",
             columns: columns,
-            layout: {
-                topStart: {
-                    buttons: ['colvis']
-                }
-            },
         })
     </script>
 @endpush

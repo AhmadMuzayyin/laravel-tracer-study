@@ -29,7 +29,7 @@
                                     <td class="text-center">#</td>
                                     <td class="text-center">Pertanyaan</td>
                                     <td class="text-center">Pilihan Jawaban</td>
-                                    <td class="text-center">Action</td>
+                                    <td class="text-center">Aksi</td>
                                 </tr>
                             </thead>
                         </table>
@@ -55,13 +55,9 @@
                 data: 'answer',
                 render: function(data) {
                     var list = ''
-                    var answer = ['Setuju', 'Tidak Setuju', 'Sangat Setuju', 'Sangat Tidak Setuju', 'Baik',
-                        'Sangat Baik', 'Cukup', 'Kurang'
-                    ];
                     data.map((val) => {
-                        var ans = parseInt(val.jawaban) - 1;
                         list += `<ul>
-                            <li>${answer[ans]}</li>
+                            <li>${val.jawaban}</li>
                         </ul>`;
                     })
                     return list
@@ -82,11 +78,6 @@
             serverSide: true,
             ajax: "{{ route('answer.index') }}",
             columns: columns,
-            layout: {
-                topStart: {
-                    buttons: ['colvis']
-                }
-            },
         })
     </script>
 @endpush

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumni;
+use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\User;
 use Carbon\Carbon;
@@ -76,28 +77,44 @@ class ChartController extends Controller
             }
         }
     }
-    public function pendapat()
+    public function jawaban()
     {
-        if (request()->ajax()) {
-            $pendapat =  DB::table('question_answers')
-                ->join('answers', 'question_answers.answer_id', '=', 'answers.id')
-                ->whereBetween('answers.jawaban', [1, 4])
-                ->select('answers.jawaban', DB::raw('count(*) as count'))
-                ->groupBy('answers.jawaban')
-                ->get();
-            return response()->json($pendapat);
+        $questions = Question::with(['answer' => function ($query) {
+            $query->select('id', 'question_id', 'jawaban');
+        }])->get();
+
+        // Data untuk chart
+        $chartData = [];
+
+        foreach ($questions as $question) {
+            $data = [
+                'question' => $question->name,
+                'answers' => []
+            ];
+
+            foreach ($question->answer as $answer) {
+                // Hitung jumlah user yang memilih jawaban ini
+                $count = QuestionAnswer::where('question_id', $question->id)
+                    ->where('answer_id', $answer->id)
+                    ->count();
+
+                $data['answers'][] = [
+                    'jawaban' => $answer->jawaban,
+                    'count' => $count
+                ];
+            }
+
+            $chartData[] = $data;
         }
-    }
-    public function penilaian()
-    {
-        if (request()->ajax()) {
-            $penilaian =  DB::table('question_answers')
-                ->join('answers', 'question_answers.answer_id', '=', 'answers.id')
-                ->whereBetween('answers.jawaban', [5, 8])
-                ->select('answers.jawaban', DB::raw('count(*) as count'))
-                ->groupBy('answers.jawaban')
-                ->get();
-            return response()->json($penilaian);
-        }
+        return response()->json($chartData);
+        // if (request()->ajax()) {
+        //     $pendapat =  DB::table('question_answers')
+        //         ->join('answers', 'question_answers.answer_id', '=', 'answers.id')
+        //         ->whereBetween('answers.jawaban', [1, 4])
+        //         ->select('answers.jawaban', DB::raw('count(*) as count'))
+        //         ->groupBy('answers.jawaban')
+        //         ->get();
+        //     return response()->json($pendapat);
+        // }
     }
 }

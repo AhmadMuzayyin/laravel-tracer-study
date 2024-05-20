@@ -28,8 +28,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Slug</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
+                                    <th>Nama</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -68,11 +68,6 @@
             serverSide: true,
             ajax: "{{ route('question.index') }}",
             columns: columns,
-            layout: {
-                topStart: {
-                    buttons: ['colvis']
-                }
-            },
         })
     </script>
 @endpush

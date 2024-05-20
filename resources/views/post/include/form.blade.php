@@ -26,7 +26,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <label for="excerpt">Excerpt</label>
+        <label for="excerpt">Penjelasan Singkat</label>
         <textarea class="form-control @error('excerpt') is-invalid @enderror" id="excerpt" name="excerpt">{{ isset($post) ? $post->excerpt : old('excerpt') }}</textarea>
         @error('excerpt')
             <div class="invalid-feedback">

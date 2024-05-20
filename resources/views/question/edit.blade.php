@@ -10,7 +10,7 @@
                         </div>
                         <div class="col text-right">
                             <a href="{{ route('question.index') }}" class="btn btn-primary" role="button">
-                                <i class="fas fa-angle-double-left"></i> Back
+                                <i class="fas fa-angle-double-left"></i> Kembali
                             </a>
                         </div>
                     </div>

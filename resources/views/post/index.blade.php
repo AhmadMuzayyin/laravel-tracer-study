@@ -88,11 +88,6 @@
             serverSide: true,
             ajax: "{{ route('post.index') }}",
             columns: columns,
-            layout: {
-                topStart: {
-                    buttons: ['colvis']
-                }
-            },
         })
     </script>
 @endpush

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Nama</label>
                 <textarea class="form-control @error('name') is-invalid @enderror" id="name" name="name">{{ isset($question) ? $question->name : old('name') }}</textarea>
                 @error('name')
                     <div class="invalid-feedback">
