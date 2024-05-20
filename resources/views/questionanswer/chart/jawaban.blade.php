@@ -26,8 +26,8 @@
             success: function(response) {
                 response.forEach((data, index) => {
                     var canvasId = 'chart-' + index;
-                    var chartWrapper = $('<div class="chart-wrapper"><h2>' + data.question +
-                        '</h2><canvas id="' + canvasId + '"></canvas></div>');
+                    var chartWrapper = $('<div class="chart-wrapper"><h6>' + data.question +
+                        '</h6><canvas id="' + canvasId + '"></canvas></div>');
                     $('#charts-container').append(chartWrapper);
 
                     var ctx = document.getElementById(canvasId).getContext('2d');
