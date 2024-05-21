@@ -49,8 +49,8 @@
                                 @foreach ($recent_posts as $recent)
                                     <div class="wd-post d-flex flex-wrap">
                                         <div class="wd-thumb">
-                                            <img src="https://source.unsplash.com/random/52x52/?{{ $recent->category->name }}"
-                                                alt="">
+                                            <img src="{{ url('storage/', $recent->attachment[0]->attachment) }}"
+                                                alt="" width="52" height="52">
                                         </div>
                                         <div class="wd-info">
                                             <h3><a href="{{ route('landing.single_post', $recent->slug) }}"
