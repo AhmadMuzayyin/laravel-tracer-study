@@ -13,7 +13,7 @@
                         <div class="contact-info">
                             <img src="{{ url('frontend/assets/img/icon1.png') }}" alt="">
                             <div class="contact-tt">
-                                <h4>Call</h4>
+                                <h4>Telpon</h4>
                                 <span>+2 342 5446 67</span>
                             </div>
                         </div>
@@ -22,8 +22,8 @@
                         <div class="contact-info">
                             <img src="{{ url('frontend/assets/img/icon2.png') }}" alt="">
                             <div class="contact-tt">
-                                <h4>Work Time</h4>
-                                <span>Mon - Fri 8 AM - 5 PM</span>
+                                <h4>Jam Kerja</h4>
+                                <span>Senin - Jumat 8 AM - 5 PM</span>
                             </div>
                         </div>
                     </li>
@@ -31,7 +31,7 @@
                         <div class="contact-info">
                             <img src="{{ url('frontend/assets/img/icon3.png') }}" alt="">
                             <div class="contact-tt">
-                                <h4>Address</h4>
+                                <h4>Alamat</h4>
                                 <span>Kec. Proppo, Kabupaten Pamekasan</span>
                             </div>
                         </div>
@@ -49,19 +49,19 @@
                 <nav>
                     <ul>
                         <li><a class="{{ request()->routeIs('landing.index') ? 'active' : '' }}"
-                                href="{{ route('landing.index') }}" title="Beranda">Home</a>
+                                href="{{ route('landing.index') }}" title="Beranda">Beranda</a>
                         </li>
                         <li>
                             <a class="{{ request()->routeIs('landing.about') ? 'active' : '' }}"
-                                href="{{ route('landing.about') }}" title="Tentang Kami">About</a>
+                                href="{{ route('landing.about') }}" title="Tentang Kami">Tentang Kami</a>
                         </li>
                         <li>
                             <a class="{{ request()->routeIs('landing.blogs') ? 'active' : '' }}"
-                                href="{{ route('landing.blogs') }}" title="Blog SMKN 1 Proppo">Blog</a>
+                                href="{{ route('landing.blogs') }}" title="Blog SMKN 1 Proppo">Postingan</a>
                         </li>
                         <li>
                             <a class="{{ request()->routeIs('landing.contacts') ? 'active' : '' }}"
-                                href="{{ route('landing.contacts') }}" title="Hubungi Kami">Contacts</a>
+                                href="{{ route('landing.contacts') }}" title="Hubungi Kami">Kontak</a>
                         </li>
                         <li>
                             <a href="{{ route('login.index') }}" title="Login Panel">Login</a>
@@ -79,19 +79,19 @@
     <div class="responsive-menu">
         <ul>
             <li><a class="{{ request()->routeIs('landing.index') ? 'active' : '' }}"
-                    href="{{ route('landing.index') }}" title="Beranda">Home</a>
+                    href="{{ route('landing.index') }}" title="Beranda">Beranda</a>
             </li>
             <li>
                 <a class="{{ request()->routeIs('landing.about') ? 'active' : '' }}"
-                    href="{{ route('landing.about') }}" title="Tentang Kami">About</a>
+                    href="{{ route('landing.about') }}" title="Tentang Kami">Tentang Kami</a>
             </li>
             <li>
                 <a class="{{ request()->routeIs('landing.blogs') ? 'active' : '' }}"
-                    href="{{ route('landing.blogs') }}" title="Blog SMKN 1 Proppo">Blog</a>
+                    href="{{ route('landing.blogs') }}" title="Blog SMKN 1 Proppo">Postingan</a>
             </li>
             <li>
                 <a class="{{ request()->routeIs('landing.contacts') ? 'active' : '' }}"
-                    href="{{ route('landing.contacts') }}" title="Hubungi Kami">Contacts</a>
+                    href="{{ route('landing.contacts') }}" title="Hubungi Kami">Kontak</a>
             </li>
             <li>
                 <a href="{{ route('login.index') }}" title="Login Panel">Login</a>

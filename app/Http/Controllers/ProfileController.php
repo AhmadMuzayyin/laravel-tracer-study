@@ -54,15 +54,20 @@ class ProfileController extends Controller
             $request->has('tahun_lulus') &&
             $request->has('jenis_kelamin')
         ) {
-            Alumni::create([
-                'user_id' => $user->id,
-                'alamat' => $request->alamat,
-                'telepon' => $request->telepon,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'tempat_lahir' => $request->tempat_lahir,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'tahun_lulus' => $request->tahun_lulus,
-            ]);
+            Alumni::updateOrCreate(
+                [
+                    'user_id' => $user->id
+                ],
+                [
+                    'user_id' => $user->id,
+                    'alamat' => $request->alamat,
+                    'telepon' => $request->telepon,
+                    'jenis_kelamin' => $request->jenis_kelamin,
+                    'tempat_lahir' => $request->tempat_lahir,
+                    'tanggal_lahir' => $request->tanggal_lahir,
+                    'tahun_lulus' => $request->tahun_lulus,
+                ]
+            );
         }
 
         return redirect()->route('profile')->withSuccess('Profile updated successfully.');

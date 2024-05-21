@@ -18,7 +18,7 @@
                                     <div class="contact-info">
                                         <img src="{{ url('frontend/assets/img/icon1.png') }}" alt="">
                                         <div class="contact-tt">
-                                            <h4>Call</h4>
+                                            <h4>Telpon</h4>
                                             <span>+2 342 5446 67</span>
                                         </div>
                                     </div><!--contact-info end-->
@@ -27,8 +27,8 @@
                                     <div class="contact-info">
                                         <img src="{{ url('frontend/assets/img/icon2.png') }}" alt="">
                                         <div class="contact-tt">
-                                            <h4>Work Time</h4>
-                                            <span>Mon - Fri 8 AM - 5 PM</span>
+                                            <h4>Jam Kerja</h4>
+                                            <span>Senin - Jumat 8 AM - 5 PM</span>
                                         </div>
                                     </div><!--contact-info end-->
                                 </li>
@@ -36,7 +36,7 @@
                                     <div class="contact-info">
                                         <img src="{{ url('frontend/assets/img/icon3.png') }}" alt="">
                                         <div class="contact-tt">
-                                            <h4>Address</h4>
+                                            <h4>Alamat</h4>
                                             <span>Kec. Proppo, Kabupaten Pamekasan</span>
                                         </div>
                                     </div><!--contact-info end-->
@@ -46,10 +46,10 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="widget widget-links">
-                            <h3 class="widget-title">Quick Links</h3>
+                            <h3 class="widget-title">Tautan Langsung</h3>
                             <ul>
-                                <li><a href="{{ route('landing.about') }}" title="">About Us </a></li>
-                                <li><a href="{{ route('landing.blogs') }}" title="">Our News </a></li>
+                                <li><a href="{{ route('landing.about') }}" title="">Tentang Kami </a></li>
+                                <li><a href="{{ route('landing.blogs') }}" title="">Postingan </a></li>
                             </ul>
                         </div><!--widget-links end-->
                     </div>

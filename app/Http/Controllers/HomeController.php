@@ -25,16 +25,24 @@ class HomeController extends Controller
     }
     public function blogs()
     {
+        $query = Post::with('user', 'category', 'content');
+        if ($search = request()->get('search')) {
+            $query->where('title', 'like', "%{$search}%");
+        }
+        $post = $query->paginate(4);
         return view('pages.blogs', [
             'categories' => Category::with('post')->get(),
-            'posts' => Post::with('user', 'category', 'content')->paginate(4),
+            'posts' => $post,
+            'recent_posts' => Post::latest()->take(3)->get()
         ]);
     }
     public function blog(Post $post)
     {
+        $recent_posts = Post::latest()->take(3)->get();
         return view('pages.singlepost', [
             'categories' => Category::with('post')->get(),
             'post' => $post->load('user', 'category', 'content'),
+            'recent_posts' => $recent_posts
         ]);
     }
 }

@@ -40,11 +40,11 @@
                     </button>
                     <!-- Topbar Navbar -->
                     @if (auth()->user()->role == \App\RoleEnum::Alumni->value)
-                        <a href="/home" class="mx-2">Home</a>
+                        <a href="/home" class="mx-2">Beranda</a>
                         @if (auth()->user()->alumni)
                             @if (isset($count_answer))
                                 @if ($count_answer == 0)
-                                    <a href="{{ route('survei.index') }}">Survei</a>
+                                    <a href="{{ route('survei.index') }}">Kuesioner</a>
                                 @endif
                             @endif
                         @endif
@@ -64,20 +64,12 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{{ route('profile') }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    {{ __('Profile') }}
-                                </a>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    {{ __('Settings') }}
-                                </a>
-                                <a class="dropdown-item" href="javascript:void(0)">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    {{ __('Activity Log') }}
+                                    {{ __('Profil') }}
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    {{ __('Logout') }}
+                                    {{ __('Keluar') }}
                                 </a>
                             </div>
                         </li>

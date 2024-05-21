@@ -20,24 +20,24 @@
                             <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
                                 <img src="{{ url('frontend/assets/img/icon7.png') }}" alt="">
                                 <h3>Teknik Audio</h3>
-                                <p>A world of thought-provoking articles, Case studies that celebrate architecture,
-                                    Exclusive access to design insights.</p>
+                                <p>Dunia artikel yang menggugah pikiran, Studi kasus yang merayakan arsitektur, Akses
+                                    eksklusif ke wawasan desain.</p>
                             </div><!--abt-col end-->
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">
                                 <img src="{{ url('frontend/assets/img/icon8.png') }}" alt="">
                                 <h3>Teknik Video</h3>
-                                <p>A world of thought-provoking articles, Case studies that celebrate architecture,
-                                    Exclusive access to design insights.</p>
+                                <p>Dunia artikel yang menggugah pikiran, Studi kasus yang merayakan arsitektur, Akses
+                                    eksklusif ke wawasan desain.</p>
                             </div><!--abt-col end-->
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="abt-col wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
                                 <img src="{{ url('frontend/assets/img/icon9.png') }}" alt="">
                                 <h3>Tata Busana</h3>
-                                <p>Collaborate with fellow architects, Showcase your projects,Experience the world of
-                                    architecture</p>
+                                <p>Berkolaborasi dengan sesama arsitek, Pamerkan proyek Anda, Rasakan dunianya Arsitektur.
+                                </p>
                             </div><!--abt-col end-->
                         </div>
                     </div>
@@ -108,9 +108,8 @@
     <section class="blog-section">
         <div class="container">
             <div class="section-title text-center">
-                <h2>Recent Posts</h2>
-                <p>Nam mattis felis id sodales rutrum. Nulla ornare tristique mauris, a laoreet erat ornare sit
-                    amet. Nulla sagittis faucibus lacusMorbi lorem sem, aliquet</p>
+                <h2>Postingan Terbaru</h2>
+                <p></p>
             </div><!--section-title end-->
             <div class="blog-posts">
                 <div class="row">
@@ -134,49 +133,13 @@
                                         {{ $recent->excerpt() }}
                                     </p>
                                     <a href="{{ route('landing.single_post', $recent->slug) }}" title=""
-                                        class="read-more">Read <i class="fa fa-long-arrow-alt-right"></i></a>
+                                        class="read-more">Selengkapnya <i class="fa fa-long-arrow-alt-right"></i></a>
                                 </div>
                             </div><!--blog-post end-->
                         </div>
                     @endforeach
                 </div>
             </div><!--blog-posts end-->
-        </div>
-    </section>
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-sec">
-                <div class="row align-items-center">
-                    <div class="col-lg-4">
-                        <div class="newsz-ltr-text">
-                            <h2>Join us <br /> and stay tuned!</h2>
-                            <a href="{{ route('login.index') }}" title="" class="btn-default">Join Us <i
-                                    class="fa fa-long-arrow-alt-right"></i></a>
-                        </div><!--newsz-ltr-text end-->
-                    </div>
-                    <div class="col-lg-8">
-                        <form class="newsletter-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="name" placeholder="Name">
-                                    </div><!--form-group end-->
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email">
-                                    </div><!--form-group end-->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div><!--form-group end-->
-                                </div>
-                            </div>
-                        </form><!--newsletter-form end-->
-                    </div>
-                </div>
-            </div><!--newsletter-sec end-->
         </div>
     </section>
 @endsection

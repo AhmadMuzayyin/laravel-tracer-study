@@ -4,15 +4,15 @@
         <div class="container">
             <div class="pager-content text-center">
                 <ul>
-                    <li><a href="{{ route('landing.index') }}" title="">Home</a></li>
-                    <li><a href="{{ route('landing.blogs') }}" title="">Blog</a></li>
+                    <li><a href="{{ route('landing.index') }}" title="">Beranda</a></li>
+                    <li><a href="{{ route('landing.blogs') }}" title="">Postingan</a></li>
                     <li><span>{{ $post->title }}</span></li>
                 </ul>
                 <h2>{{ $post->title }}</h2>
                 <span class="categry">{{ $post->category->name }}</span>
                 <ul class="meta">
                     <li><a href="#" title="">{{ $post->created_at->diffForHumans() }}</a></li>
-                    <li><a href="#" title="">by {{ $post->user->name }}</a></li>
+                    <li><a href="#" title="">Oleh {{ $post->user->name }}</a></li>
                 </ul>
             </div><!--pager-content end-->
         </div>
@@ -32,36 +32,34 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="sidebar">
-                        <div class="widget widget-search">
-                            <form>
-                                <input type="text" name="search" placeholder="Search">
-                                <button type="submit"><img src="{{ url('frontend/assets/img/icon4.png') }}"
-                                        alt=""></button>
-                            </form>
-                        </div>
                         <div class="widget widget-categories">
-                            <h3 class="widget-title">Categories</h3>
+                            <h3 class="widget-title">Kategori</h3>
                             <ul>
                                 @foreach ($categories as $category)
                                     <li>
-                                        <a href="#" title="">{{ $category->name }}</a>
+                                        {{ $category->name }}
                                         <span>{{ count($category->post) }}</span>
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
                         <div class="widget widget-posts">
-                            <h3 class="widget-title">Latest Posts</h3>
+                            <h3 class="widget-title">Postingan Terbaru</h3>
                             <div class="wd-posts">
-                                <div class="wd-post d-flex flex-wrap">
-                                    <div class="wd-thumb">
-                                        <img src="https://via.placeholder.com/52x52" alt="">
+                                @foreach ($recent_posts as $recent)
+                                    <div class="wd-post d-flex flex-wrap">
+                                        <div class="wd-thumb">
+                                            <img src="https://source.unsplash.com/random/52x52/?{{ $recent->category->name }}"
+                                                alt="">
+                                        </div>
+                                        <div class="wd-info">
+                                            <h3><a href="{{ route('landing.single_post', $recent->slug) }}"
+                                                    title="">{{ $recent->title }}</a>
+                                            </h3>
+                                            <span>{{ $recent->created_at->diffForHumans() }}</span>
+                                        </div>
                                     </div>
-                                    <div class="wd-info">
-                                        <h3><a href="post.html" title="">Duis tempor eros tortor, a ornare</a></h3>
-                                        <span>17/09/2020</span>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

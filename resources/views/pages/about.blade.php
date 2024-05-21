@@ -3,10 +3,10 @@
     <section class="pager-section">
         <div class="container">
             <div class="pager-content text-center">
-                <h2>About Us</h2>
+                <h2>Tentang Kami</h2>
                 <ul>
-                    <li><a href="#" title="">Home</a></li>
-                    <li><span>About</span></li>
+                    <li><a href="/" title="">Beranda</a></li>
+                    <li><span>Tentang Kami</span></li>
                 </ul>
             </div><!--pager-content end-->
             <h2 class="page-titlee">SMKN 1</h2>
@@ -41,8 +41,8 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="act-inffo">
-                            <span>ABOUT US</span>
-                            <h2>Visi Misi</h2>
+                            <span>Tentang Kami</span>
+                            <h2>Visi & Misi</h2>
                             <p>Mencetak Generasi Kreatif, Inovatif, produktif Dan Mandiri Berbasis IMTAQ Dan
                                 IPTEK.</p>
                             <ul>

@@ -92,7 +92,8 @@
             <!-- Illustrations -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Dashboard Admin</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Dashboard
+                        {{ auth()->user()->role == \App\RoleEnum::Admin->value ? 'Admin' : 'Alumni' }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="text-center">
@@ -114,7 +115,7 @@
                             @else
                                 @if ($count_answer == 0)
                                     <a href="{{ route('survei.index') }}" class="btn btn-primary" role="button">ISI
-                                        SURVEI</a>
+                                        KUESIONER</a>
                                 @endif
                             @endif
                         @else

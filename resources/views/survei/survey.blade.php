@@ -1,4 +1,4 @@
-@extends('layouts.admin', ['heading' => 'Survey'])
+@extends('layouts.admin', ['heading' => 'Kuisioner'])
 @section('main-content')
     <div id="preloader">
         <div data-loader="circle-side"></div>
@@ -8,7 +8,7 @@
     </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3 bg-white">
-            <h6 class="m-0 font-weight-bold" style="color: #4e73df!important">Silahkan isi survey dan jawab dengan jujur
+            <h6 class="m-0 font-weight-bold" style="color: #4e73df!important">Silahkan isi kuesioner dan jawab dengan jujur
             </h6>
         </div>
         <div class="card-body">
@@ -21,18 +21,6 @@
                                     <div id="progressbar"></div>
                                 </div>
                                 <!-- /top-wizard -->
-                                @php
-                                    $answer = [
-                                        'Setuju',
-                                        'Tidak Setuju',
-                                        'Sangat Setuju',
-                                        'Sangat Tidak Setuju',
-                                        'Baik',
-                                        'Sangat Baik',
-                                        'Cukup',
-                                        'Kurang',
-                                    ];
-                                @endphp
                                 <form id="wrapped" method="POST" action="{{ route('survei.store') }}">
                                     @csrf
                                     <input id="website" name="website" type="text" value="">
@@ -59,36 +47,19 @@
                                         <!-- /step-->
                                         <div class="submit step">
                                             <h3 class="main_question">
-                                                <strong>{{ $questions->count() + 1 }}/{{ $questions->count() + 1 }}</strong>Summary
+                                                <strong>{{ $questions->count() + 1 }}/{{ $questions->count() + 1 }}</strong>
                                             </h3>
                                             <div class="summary">
-                                                <ul>
-                                                    <li><strong>1</strong>
-                                                        <h5>How do rate your overall satisfaction about the service
-                                                            provided?
-                                                        </h5>
-                                                        <p id="question_1"></p>
-                                                    </li>
-                                                    <li><strong>2</strong>
-                                                        <h5>How did you hear about our company?</h5>
-                                                        <p id="question_2"></p>
-                                                    </li>
-                                                    <li><strong>3</strong>
-                                                        <h5>Do you think to suggest our company to a friend or parent?
-                                                        </h5>
-                                                        <p id="question_3"></p>
-                                                        <p id="additional_message"></p>
-                                                    </li>
-                                                </ul>
+                                                <h5>Terimakasih telah mengisi kuisioner Tracer Study SMKN 1 Proppo</h5>
                                             </div>
                                         </div>
                                         <!-- /step-->
                                     </div>
                                     <!-- /middle-wizard -->
                                     <div id="bottom-wizard">
-                                        <button type="button" name="backward" class="backward">Prev</button>
-                                        <button type="button" name="forward" class="forward">Next</button>
-                                        <button type="submit" name="process" class="submit">Submit</button>
+                                        <button type="button" name="backward" class="backward">Kembali</button>
+                                        <button type="button" name="forward" class="forward">Lanjut</button>
+                                        <button type="submit" name="process" class="submit">Simpan</button>
                                     </div>
                                     <!-- /bottom-wizard -->
                                 </form>

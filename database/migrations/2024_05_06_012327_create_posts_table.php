@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
             $table->string('slug')->unique();
             $table->string('title');
+            $table->text('excerpt');
             $table->string('status')->default(PostEnum::Draft->value);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
