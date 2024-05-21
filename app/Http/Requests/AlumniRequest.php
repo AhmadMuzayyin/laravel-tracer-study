@@ -29,7 +29,7 @@ class AlumniRequest extends FormRequest
             'last_name' => ['required', 'string', 'min:3', 'max:100'],
             'email' => [
                 'required',
-                Rule::unique('users')->ignore($this->route('alumnus'))
+                Rule::unique('users')->ignore($this->id)
             ],
             'password' => ['required', 'min:8']
         ];

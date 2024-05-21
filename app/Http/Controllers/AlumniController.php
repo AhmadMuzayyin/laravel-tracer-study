@@ -39,20 +39,20 @@ class AlumniController extends Controller
         $alumni = $alumni->load('alumni');
         return view('alumni.edit', compact('alumni'));
     }
-    public function update(AlumniRequest $request, User $alumni)
+    public function update(Request $request, User $alumni)
     {
-        $validated = $request->validated();
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'min:3', 'max:100'],
+            'last_name' => ['required', 'string', 'min:3', 'max:100'],
+            'email' => ['required', 'email', 'string', 'unique:users,email,' . $alumni->id],
+            'password' => ['required', 'min:8']
+        ]);
         try {
-            Alumni::where('user_id', $alumni->id)->update([
-                'alamat' => $validated['alamat'],
-                'tempat_lahir' => $validated['tempat_lahir'],
-                'tanggal_lahir' => $validated['tanggal_lahir'],
-                'tahun_lulus' => $validated['tahun_lulus'],
-            ]);
             $alumni->update([
                 'name' => $validated['name'],
                 'last_name' => $validated['last_name'],
-                // 'email' => $validated['email'],
+                'email' => $validated['email'],
+                'password' => $validated['password'],
             ]);
             return redirect()->back()->withSuccess('Data berhasil diubah!');
         } catch (\Throwable $th) {
