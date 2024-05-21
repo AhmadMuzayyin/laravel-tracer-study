@@ -23,7 +23,7 @@
                                 <div class="blog-post">
                                     <div class="blog-thumbnail">
                                         <a href="#" title="">
-                                            <img src="{{ $post->trixAttachments->count() == 0 ? "https://source.unsplash.com/random/2172x1448/?{$post->category->name}" : $post->trixAttachments->attachment }}"
+                                            <img src="{{ url('storage/', $post->attachment[0]->attachment) }}"
                                                 alt="" class="w-100">
                                         </a>
                                         <span class="category">{{ $post->category->name }}</span>
@@ -79,8 +79,8 @@
                                 @foreach ($recent_posts as $recent)
                                     <div class="wd-post d-flex flex-wrap">
                                         <div class="wd-thumb">
-                                            <img src="https://source.unsplash.com/random/52x52/?{{ $recent->category->name }}"
-                                                alt="">
+                                            <img src="{{ url('storage/', $recent->attachment[0]->attachment) }}"
+                                                alt="" width="52" height="52">
                                         </div>
                                         <div class="wd-info">
                                             <h3><a href="{{ route('landing.single_post', $recent->slug) }}"

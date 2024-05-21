@@ -8,6 +8,7 @@ use Te7aHoudini\LaravelTrix\Models\TrixRichText;
 use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Te7aHoudini\LaravelTrix\Models\TrixAttachment;
 
 class Post extends Model
 {
@@ -25,6 +26,10 @@ class Post extends Model
     public function content()
     {
         return $this->hasMany(TrixRichText::class, 'model_id');
+    }
+    public function attachment()
+    {
+        return $this->hasMany(TrixAttachment::class, 'attachable_id');
     }
     public function excerpt()
     {

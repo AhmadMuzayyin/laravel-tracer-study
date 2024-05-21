@@ -3,10 +3,10 @@
     <section class="pager-section">
         <div class="container">
             <div class="pager-content text-center">
-                <h2>Contacts</h2>
+                <h2>Kontak</h2>
                 <ul>
                     <li><a href="#" title="">Home</a></li>
-                    <li><span>Contacts</span></li>
+                    <li><span>Kontak</span></li>
                 </ul>
             </div><!--pager-content end-->
             <h2 class="page-titlee">SMKN 1</h2>
@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-7">
                         <div class="comment-area">
-                            <h3>Contact Me</h3>
+                            <h3>Hubungi Kami</h3>
                             <form id="contact-form" method="post" action="#">
                                 <div class="response"></div>
                                 <div class="row">

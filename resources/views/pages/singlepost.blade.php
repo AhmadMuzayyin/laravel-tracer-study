@@ -1,5 +1,6 @@
 @extends('layouts.home')
 @section('content')
+    {{-- @dd($post) --}}
     <section class="pager-section blog-version">
         <div class="container">
             <div class="pager-content text-center">
@@ -9,7 +10,7 @@
                     <li><span>{{ $post->title }}</span></li>
                 </ul>
                 <h2>{{ $post->title }}</h2>
-                <span class="categry">{{ $post->category->name }}</span>
+                <span class="category">{{ $post->category->name }}</span>
                 <ul class="meta">
                     <li><a href="#" title="">{{ $post->created_at->diffForHumans() }}</a></li>
                     <li><a href="#" title="">Oleh {{ $post->user->name }}</a></li>
@@ -17,7 +18,6 @@
             </div><!--pager-content end-->
         </div>
     </section><!--pager-section end-->
-
     <section class="page-content p80">
         <div class="container">
             <div class="row">
@@ -68,3 +68,14 @@
         </div>
     </section>
 @endsection
+@push('css')
+    <style>
+        .pager-section.blog-version {
+            background-image: url('{{ url('storage/', $post->attachment[0]->attachment) }}');
+            padding: 169px 0 242px;
+            position: relative;
+            background-position: 50%;
+            background-size: cover;
+        }
+    </style>
+@endpush

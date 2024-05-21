@@ -41,7 +41,7 @@ class HomeController extends Controller
         $recent_posts = Post::latest()->take(3)->get();
         return view('pages.singlepost', [
             'categories' => Category::with('post')->get(),
-            'post' => $post->load('user', 'category', 'content'),
+            'post' => $post->load('user', 'category', 'content', 'attachment'),
             'recent_posts' => $recent_posts
         ]);
     }
