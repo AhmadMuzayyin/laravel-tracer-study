@@ -24,18 +24,6 @@ class AlumniController extends Controller
         }
         return view('alumni.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(AlumniRequest $request)
     {
         $validated = $request->validated();
@@ -46,27 +34,11 @@ class AlumniController extends Controller
             return redirect()->back()->withErrors('Data gagal disimpan!');
         }
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(User $alumni)
     {
-        $alumni = $alumni->with('alumni')->first();
+        $alumni = $alumni->load('alumni');
         return view('alumni.edit', compact('alumni'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(AlumniRequest $request, User $alumni)
     {
         $validated = $request->validated();
@@ -87,10 +59,6 @@ class AlumniController extends Controller
             return redirect()->back()->withErrors("Data gagal diubah!");
         }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(User $alumni)
     {
         // dd($alumni);

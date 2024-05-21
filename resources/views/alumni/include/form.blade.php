@@ -38,8 +38,7 @@
     <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
-            name="password"
-            value="{{ isset($alumni) ? ($alumni->alumni != [] ? $alumni->alumni->password : old('password')) : old('password') }}">
+            name="password">
         @error('password')
             <div class="invalid-feedback">
                 {{ $message }}

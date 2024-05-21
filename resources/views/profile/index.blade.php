@@ -24,9 +24,7 @@
     @endif
 
     <div class="row">
-
         <div class="col-lg-4 order-lg-2">
-
             <div class="card shadow mb-4">
                 <div class="card-profile-image mt-4">
                     <figure class="rounded-circle avatar avatar font-weight-bold"
@@ -34,7 +32,6 @@
                     </figure>
                 </div>
                 <div class="card-body">
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center">
@@ -45,26 +42,17 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         <div class="col-lg-8 order-lg-1">
-
             <div class="card shadow mb-4">
-
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Akun Saya</h6>
                 </div>
-
                 <div class="card-body">
-
                     <form method="POST" action="{{ route('profile.update') }}" autocomplete="off">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
                         <input type="hidden" name="_method" value="PUT">
-
                         <h6 class="heading-small text-muted mb-4">Informasi Pengguna</h6>
-
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -83,7 +71,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
@@ -95,7 +82,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
