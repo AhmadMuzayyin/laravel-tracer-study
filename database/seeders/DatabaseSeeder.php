@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
             'role' => RoleEnum::Admin->value
         ]);
         $this->call(QuestionSeeder::class);
-        // \App\Models\User::factory(50)->create();
+        \App\Models\User::factory(50)->create();
     }
 }
