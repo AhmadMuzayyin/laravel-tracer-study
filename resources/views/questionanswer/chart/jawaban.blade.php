@@ -36,7 +36,7 @@
                         data: {
                             labels: data.answers.map(answer => answer.jawaban),
                             datasets: [{
-                                label: 'Jumlah User',
+                                label: 'Alumni yang menjawab',
                                 data: data.answers.map(answer => answer.count),
                                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                                 borderColor: 'rgba(54, 162, 235, 1)',

@@ -82,10 +82,9 @@ class ChartController extends Controller
         $questions = Question::with(['answer' => function ($query) {
             $query->select('id', 'question_id', 'jawaban');
         }])->get();
-
         // Data untuk chart
         $chartData = [];
-
+        $totalUsers = User::count();
         foreach ($questions as $question) {
             $data = [
                 'question' => $question->name,
@@ -97,10 +96,11 @@ class ChartController extends Controller
                 $count = QuestionAnswer::where('question_id', $question->id)
                     ->where('answer_id', $answer->id)
                     ->count();
-
+                $percentage = ($totalUsers > 0) ? ($count / $totalUsers) * 100 : 0;
+                $percentage = round($percentage, 2);
                 $data['answers'][] = [
                     'jawaban' => $answer->jawaban,
-                    'count' => $count
+                    'count' => $percentage
                 ];
             }
 
