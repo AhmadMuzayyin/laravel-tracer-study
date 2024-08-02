@@ -5,6 +5,23 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <select name="periode" id="periode" class="form-control">
+                                <option value="" selected disabled>Pilih Angkatan</option>
+                                <option value="all">Semua Angkatan</option>
+                                @php
+                                    $endYear = 2051;
+                                @endphp
+                                @for ($firstYear = 2010; $firstYear < $endYear; $firstYear++)
+                                    <option value="{{ $firstYear }}"
+                                        {{ $firstYear == request()->get('periode') ? 'selected' : '' }}>{{ $firstYear }}
+                                    </option>
+                                @endfor
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-resposive">
@@ -54,6 +71,12 @@
 @endsection
 @push('js')
     <script>
+        $('#periode').on('change', function() {
+            window.location.href = "{{ route('questionanswer.index') }}" + `?periode=${$(this).val()}`
+        })
+    </script>
+    {{-- table --}}
+    <script>
         let columns = [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex',
@@ -95,11 +118,23 @@
                 name: 'user.alumni.tahun_lulus',
             },
         ]
+        var periode = getParameterByName('periode');
+        console.log(periode);
         $('#table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('questionanswer.index') }}",
+            ajax: "{{ route('questionanswer.index') }}" + `?periode=${periode}`,
             columns: columns,
         })
+
+        function getParameterByName(name) {
+            var url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
     </script>
 @endpush

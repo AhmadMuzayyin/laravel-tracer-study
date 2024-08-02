@@ -15,7 +15,14 @@ class ChartController extends Controller
     public function alumni()
     {
         if (request()->ajax()) {
-            $alumni_menjawab = QuestionAnswer::with('user', 'user.alumni')->select('user_id')->distinct()->get();
+            $periode = request()->get('periode');
+            $alumni_menjawab = QuestionAnswer::with('user', 'user.alumni');
+            if ($periode && $periode != 'all') {
+                $alumni_menjawab->whereHas('user.alumni', function ($query) use ($periode) {
+                    $query->whereYear('tahun_lulus', $periode);
+                });
+            }
+            $alumni_menjawab = $alumni_menjawab->select('user_id')->distinct()->get();
             $alumni = [
                 'total' => User::where('role', 'alumni')->count(),
                 'datasets' => [
@@ -29,7 +36,14 @@ class ChartController extends Controller
     public function jk()
     {
         if (request()->ajax()) {
-            $user_alumni = User::with('alumni')->get();
+            $periode = request()->get('periode');
+            $query = User::with('alumni');
+            if ($periode && $periode != 'all') {
+                $query->whereHas('alumni', function ($query) use ($periode) {
+                    $query->whereYear('tahun_lulus', $periode);
+                });
+            }
+            $user_alumni = $query->get();
             if ($user_alumni->isNotEmpty()) {
                 $lk = 0;
                 $pr = 0;
@@ -54,27 +68,29 @@ class ChartController extends Controller
     public function umur()
     {
         if (request()->ajax()) {
-            $user_alumni = User::with('alumni')->get();
+            $periode = request()->get('periode');
+            $query = User::with('alumni');
+            if ($periode && $periode != 'all') {
+                $query->whereHas('alumni', function ($query) use ($periode) {
+                    $query->whereYear('tahun_lulus', $periode);
+                });
+            }
+            $user_alumni = $query->get();
+            $age = ['dewasa' => 0, 'remaja' => 0];
             if ($user_alumni->isNotEmpty()) {
-                $dewasa = [];
-                $remaja = [];
                 foreach ($user_alumni as $user) {
                     if ($user->alumni && $user->alumni->tanggal_lahir) {
                         $birthdate = Carbon::parse($user->alumni->tanggal_lahir);
-                        if ($birthdate->age >= 25) {
-                            array_push($dewasa, $birthdate->age);
+                        $currentAge = $birthdate->age;
+                        if ($currentAge >= 25) {
+                            $age['dewasa']++;
+                        } elseif ($currentAge >= 14 && $currentAge <= 24) {
+                            $age['remaja']++;
                         }
-                        if ($birthdate->age >= 14 && $birthdate->age <= 24) {
-                            array_push($remaja, $birthdate->age);
-                        }
-                        $age = [
-                            'dewasa' => count($dewasa),
-                            'remaja' => count($remaja),
-                        ];
                     }
                 }
-                return response()->json($age);
             }
+            return response()->json($age);
         }
     }
     public function jawaban()
@@ -82,6 +98,12 @@ class ChartController extends Controller
         $questions = Question::with(['answer' => function ($query) {
             $query->select('id', 'question_id', 'jawaban');
         }])->get();
+        // if ($periode && $periode != 'all') {
+        //     $query->whereHas('alumni', function ($query) use ($periode) {
+        //         $query->whereYear('tahun_lulus', $periode);
+        //     });
+        // }
+
         // Data untuk chart
         $chartData = [];
         $totalUsers = User::count();
@@ -107,14 +129,5 @@ class ChartController extends Controller
             $chartData[] = $data;
         }
         return response()->json($chartData);
-        // if (request()->ajax()) {
-        //     $pendapat =  DB::table('question_answers')
-        //         ->join('answers', 'question_answers.answer_id', '=', 'answers.id')
-        //         ->whereBetween('answers.jawaban', [1, 4])
-        //         ->select('answers.jawaban', DB::raw('count(*) as count'))
-        //         ->groupBy('answers.jawaban')
-        //         ->get();
-        //     return response()->json($pendapat);
-        // }
     }
 }

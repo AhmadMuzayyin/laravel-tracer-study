@@ -9,9 +9,9 @@
                         <div class="col">
                         </div>
                         <div class="col text-right">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#addPertanyaan">
+                            {{-- <button class="btn btn-primary" data-toggle="modal" data-target="#addPertanyaan">
                                 <i class="fas fa-plus"></i> Pertanyaan
-                            </button>
+                            </button> --}}
                         </div>
                         <x-modal-basic id="addPertanyaan">
                             <form action="{{ route('question.store') }}" method="post">

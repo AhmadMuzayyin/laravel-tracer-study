@@ -82,6 +82,7 @@ class KuesionerSeeder extends Seeder
                     'Lebih dari Rp 6.000.000'
                 ]
             ],
+            // if answer first question is no quickly to this question, if yes load question on top after first question 
             [
                 'question' => 'Apakah Anda pernah mengikuti pelatihan atau kursus tambahan setelah lulus dari SMKN 1 Proppo?',
                 'answers' => [
@@ -118,6 +119,7 @@ class KuesionerSeeder extends Seeder
                     'Kurang'
                 ]
             ],
+            // this two
             [
                 'question' => 'Apakah Anda melanjutkan pendidikan ke jenjang yang lebih tinggi setelah lulus dari SMKN 1 Proppo?',
                 'answers' => [
@@ -136,6 +138,7 @@ class KuesionerSeeder extends Seeder
                     'Sekolah kejuruan lainnya'
                 ]
             ],
+            // if answer two question is no quickly to this question, if yes load question on top after two question 
             [
                 'question' => 'Bagaimana Anda menilai relevansi kurikulum SMKN 1 Proppo dengan kebutuhan industri saat ini?',
                 'answers' => [
@@ -154,6 +157,7 @@ class KuesionerSeeder extends Seeder
                     'Tidak membantu sama sekali'
                 ]
             ],
+            // three
             [
                 'question' => 'Apakah Anda pernah menjalani magang selama di SMKN 1 Proppo?',
                 'answers' => [
@@ -172,6 +176,9 @@ class KuesionerSeeder extends Seeder
                     'Tidak membantu sama sekali'
                 ]
             ],
+            // if answer three question is no quickly to this question, if yes load question on top after three question
+
+            // four
             [
                 'question' => 'Apakah Anda terlibat dalam organisasi atau kegiatan ekstrakurikuler selama di SMKN 1 Proppo?',
                 'answers' => [
@@ -190,6 +197,7 @@ class KuesionerSeeder extends Seeder
                     'Tidak berpengaruh'
                 ]
             ],
+            // if answer four question is no quickly to this question, if yes load question on top after four question 
             [
                 'question' => 'Apakah Anda memiliki saran atau masukan untuk perbaikan SMKN 1 Proppo di masa mendatang?',
                 'answers' => [

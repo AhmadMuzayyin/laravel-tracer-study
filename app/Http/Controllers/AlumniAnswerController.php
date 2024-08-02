@@ -17,10 +17,16 @@ class AlumniAnswerController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $data = QuestionAnswer::with('user', 'user.alumni')->select('user_id')->distinct()->get();
+            $periode = request()->get('periode');
+            $query = QuestionAnswer::with('user', 'user.alumni');
+            if ($periode && $periode != 'all') {
+                $query->whereHas('user.alumni', function ($query) use ($periode) {
+                    $query->whereYear('tahun_lulus', $periode);
+                });
+            }
+            $data = $query->select('user_id')->distinct()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', 'questionanswer.include.action')
                 ->toJson();
         }
         return view('questionanswer.index');
