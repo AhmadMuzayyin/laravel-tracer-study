@@ -95,18 +95,18 @@ class ChartController extends Controller
     }
     public function jawaban()
     {
+        $periode = request()->get('periode');
         $questions = Question::with(['answer' => function ($query) {
             $query->select('id', 'question_id', 'jawaban');
         }])->get();
-        // if ($periode && $periode != 'all') {
-        //     $query->whereHas('alumni', function ($query) use ($periode) {
-        //         $query->whereYear('tahun_lulus', $periode);
-        //     });
-        // }
 
         // Data untuk chart
         $chartData = [];
-        $totalUsers = User::count();
+        $totalUsers = User::when($periode, function ($query) use ($periode) {
+            return $query->whereHas('alumni', function ($query) use ($periode) {
+                $query->whereYear('tahun_lulus', $periode);
+            });
+        })->count();
         foreach ($questions as $question) {
             $data = [
                 'question' => $question->name,
@@ -114,10 +114,14 @@ class ChartController extends Controller
             ];
 
             foreach ($question->answer as $answer) {
-                // Hitung jumlah user yang memilih jawaban ini
-                $count = QuestionAnswer::where('question_id', $question->id)
-                    ->where('answer_id', $answer->id)
-                    ->count();
+                $count = QuestionAnswer::with('user', 'user.alumni')->where('question_id', $question->id)
+                    ->where('answer_id', $answer->id);
+                if ($periode && $periode != 'all') {
+                    $count->whereHas('user.alumni', function ($query) use ($periode) {
+                        $query->whereYear('tahun_lulus', $periode);
+                    });
+                }
+                $count = $count->count();
                 $percentage = ($totalUsers > 0) ? ($count / $totalUsers) * 100 : 0;
                 $percentage = round($percentage, 2);
                 $data['answers'][] = [

@@ -119,11 +119,14 @@
             },
         ]
         var periode = getParameterByName('periode');
-        console.log(periode);
+        var url = "{{ route('questionanswer.index') }}"
+        if (periode != null) {
+            url += `?periode=${periode}`
+        }
         $('#table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('questionanswer.index') }}" + `?periode=${periode}`,
+            ajax: url,
             columns: columns,
         })
 

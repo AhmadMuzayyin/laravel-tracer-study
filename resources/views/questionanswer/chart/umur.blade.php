@@ -11,8 +11,12 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
         var periode = getParameterByName('periode')
+        var url = "{{ route('chart.umur') }}"
+        if (periode != null) {
+            url += `?periode=${periode}`
+        }
         $.ajax({
-            url: "{{ route('chart.umur') }}" + `?periode=${periode}`,
+            url: url,
             type: "GET",
             success: function(res) {
                 const ctx = document.getElementById('umur');

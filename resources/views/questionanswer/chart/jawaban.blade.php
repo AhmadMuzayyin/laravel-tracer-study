@@ -20,8 +20,12 @@
 @endpush
 @push('js')
     <script>
+        var url = "{{ route('chart.jawaban') }}"
+        if (periode != null) {
+            url += `?periode=${periode}`
+        }
         $.ajax({
-            url: '{{ route('chart.jawaban') }}',
+            url: url,
             method: 'GET',
             success: function(response) {
                 response.forEach((data, index) => {
