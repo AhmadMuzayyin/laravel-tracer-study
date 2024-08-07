@@ -25,8 +25,8 @@
                                     @csrf
                                     <input id="website" name="website" type="text" value="">
                                     <div id="middle-wizard">
-                                        @foreach ($questions as $item)
-                                            <div class="step">
+                                        @foreach ($questions as $index => $item)
+                                            <div class="step" data-question-id="{{ $item->id }}">
                                                 <h3 class="main_question">
                                                     <strong>{{ $loop->iteration }}/{{ $questions->count() + 1 }}</strong>
                                                     {{ $item->name }}
@@ -34,10 +34,11 @@
                                                 @foreach ($item->answer as $key => $val)
                                                     <div class="form-group radio_input">
                                                         <label class="container_radio">
-                                                            {{-- @dd($answer) --}}
                                                             {{ $val->jawaban }}
                                                             <input type="radio" name="jawaban-{{ $item->id }}"
-                                                                value="{{ $val->jawaban }}" class="required" required>
+                                                                value="{{ $val->jawaban }}" class="required" required
+                                                                data-question-id="{{ $item->id }}"
+                                                                data-answer="{{ $val->jawaban }}">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
@@ -109,6 +110,61 @@
                         error.insertAfter(element);
                     }
                 }
+            });
+
+            var clonedQuestions = {};
+
+            function handleQuestionChange(name, value, relatedQuestionIds) {
+                relatedQuestionIds.forEach(id => {
+                    const element = $(`[data-question-id="${id}"]`);
+                    if (value === 'Tidak') {
+                        // Save the element in the clonedQuestions object
+                        if (!clonedQuestions[id]) {
+                            clonedQuestions[id] = element.clone();
+                            element.remove();
+                        }
+                        // Remove subsequent elements
+                        let nextElem = element.next();
+                        while (nextElem.length && nextElem.hasClass('step')) {
+                            if (!clonedQuestions[nextElem.data('question-id')]) {
+                                clonedQuestions[nextElem.data('question-id')] = nextElem.clone();
+                                nextElem.remove();
+                            }
+                            nextElem = nextElem.next();
+                        }
+                    } else {
+                        // Restore the element if it was saved
+                        if (clonedQuestions[id]) {
+                            const savedElement = clonedQuestions[id];
+                            savedElement.insertAfter($(`[data-question-id="${id}"]`).prev());
+                            delete clonedQuestions[id];
+                        }
+                        // Restore subsequent elements
+                        let nextElem = $(`[data-question-id="${id}"]`).next();
+                        while (nextElem.length && !nextElem.is(':visible') && clonedQuestions[nextElem.data(
+                                'question-id')]) {
+                            clonedQuestions[nextElem.data('question-id')].insertAfter(nextElem.prev());
+                            delete clonedQuestions[nextElem.data('question-id')];
+                            nextElem = nextElem.next();
+                        }
+                    }
+                });
+            }
+
+            $('input[name="jawaban-1"]').on('change', function() {
+                handleQuestionChange('jawaban-1', $(this).val(), [2, 3, 4, 5, 6, 7]);
+            });
+
+            $('input[name="jawaban-10"]').on('change', function() {
+                handleQuestionChange('jawaban-10', $(this).val(), [11]);
+            });
+
+            $('input[name="jawaban-17"]').on('change', function() {
+                handleQuestionChange('jawaban-17', $(this).val(), [18]);
+            });
+
+            $('input[name="jawaban-20"]').on('change', function() {
+                handleQuestionChange('jawaban-20', $(this).val(), [21]);
             });
         })
     </script>

@@ -23,8 +23,16 @@ class SurveiController extends Controller
     }
     public function store(Request $request)
     {
+        $answers = $request->except('_token'); // Menghapus token CSRF dari array jawaban
+        $questionIds = [];
+        foreach ($answers as $key => $value) {
+            // Ambil ID dari key, misalnya 'jawaban-1' menjadi 1
+            if (preg_match('/^jawaban-(\d+)$/', $key, $matches)) {
+                $questionIds[] = (int)$matches[1];
+            }
+        }
         try {
-            $answer = Question::whereHas('answer')->get();
+            $answer = Question::whereHas('answer')->whereIn('id', $questionIds)->get();
             $data = [];
             foreach ($answer as $key => $value) {
                 $keyRequest = 'jawaban-' . $value->id;
