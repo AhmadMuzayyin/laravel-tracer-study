@@ -27,8 +27,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nama Awal</th>
-                                    <th>Nama Akhir</th>
+                                    <th>Nama Lengkap</th>
                                     <th>Email</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -50,12 +49,8 @@
                 searchable: false
             },
             {
-                data: 'name',
-                name: 'name',
-            },
-            {
-                data: 'last_name',
-                name: 'last_name',
+                data: 'fullname',
+                name: 'fullname',
             },
             {
                 data: 'email',

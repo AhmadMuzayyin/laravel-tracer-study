@@ -84,8 +84,8 @@
                 searchable: false
             },
             {
-                data: 'user.name',
-                name: 'user',
+                data: 'fullname',
+                name: 'fullname',
             },
             {
                 data: 'user',

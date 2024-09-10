@@ -27,6 +27,9 @@ class AlumniAnswerController extends Controller
             $data = $query->select('user_id')->distinct()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->addColumn('fullname', function ($row) {
+                    return $row->user->name . ' ' . $row->user->last_name;
+                })
                 ->toJson();
         }
         return view('questionanswer.index');

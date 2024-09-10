@@ -17,10 +17,22 @@ class AlumniSeeder extends Seeder
     public function run(): void
     {
         $desa = [
-            'Banyupelle', 'Campor', 'Dasuk', 'Durbuk', 'Galis',
-            'Jarin', 'Karangcempaka', 'Larangan Tokol', 'Mapper',
-            'Pangtonggal', 'Proppo', 'Ragang', 'Samiran',
-            'Sokolelah', 'Srambah', 'Tattangoh'
+            'Banyupelle',
+            'Campor',
+            'Dasuk',
+            'Durbuk',
+            'Galis',
+            'Jarin',
+            'Karangcempaka',
+            'Larangan Tokol',
+            'Mapper',
+            'Pangtonggal',
+            'Proppo',
+            'Ragang',
+            'Samiran',
+            'Sokolelah',
+            'Srambah',
+            'Tattangoh'
         ];
         $users = User::where('role', RoleEnum::Alumni->value)->get();
         foreach ($users as $user) {
@@ -31,7 +43,7 @@ class AlumniSeeder extends Seeder
             // Tempat lahir
             $tempat_lahir = 'Pamekasan';
             // Generate tanggal lahir antara usia 18 hingga 40 tahun
-            $tanggal_lahir = Carbon::today()->subYears(rand(18, 40))->format('Y-m-d');
+            $tanggal_lahir = Carbon::today()->subYears(rand(18, 20))->format('Y-m-d');
             // Generate tahun lulus dengan format tahun
             $tahun_lulus = Carbon::createFromFormat('Y-m-d', mt_rand(2010, 2023) . '-' . mt_rand(01, 12) . '-' . mt_rand(01, 30))->format('Y-m-d');
             Alumni::create([

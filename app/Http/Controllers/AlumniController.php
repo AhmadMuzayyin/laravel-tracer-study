@@ -19,6 +19,9 @@ class AlumniController extends Controller
             $data = User::with('alumni')->where('role', 'Alumni')->orderBy('id', 'desc')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->addColumn('fullname', function ($row) {
+                    return $row->name . ' ' . $row->last_name;
+                })
                 ->addColumn('action', 'alumni.include.action')
                 ->toJson();
         }
