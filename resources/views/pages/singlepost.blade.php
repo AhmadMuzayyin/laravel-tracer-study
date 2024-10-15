@@ -50,7 +50,7 @@
                                     <div class="wd-post d-flex flex-wrap">
                                         <div class="wd-thumb">
                                             <img src="{{ url('storage/', $recent->attachment[0]->attachment) }}"
-                                                alt="" width="52" height="52">
+                                                alt="" width="50" height="50" class="img-fluid">
                                         </div>
                                         <div class="wd-info">
                                             <h3><a href="{{ route('landing.single_post', $recent->slug) }}"
@@ -76,6 +76,12 @@
             position: relative;
             background-position: 50%;
             background-size: cover;
+        }
+
+        figure,
+        img {
+            width: 100%;
+            height: 100%;
         }
     </style>
 @endpush
